@@ -1,0 +1,87 @@
+﻿@model RaoVat.Models.USER
+
+@{
+    ViewBag.Title = "DetailInfo";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<div class="container-fluid bg-body" style="margin-top:100px">
+    <div class="row">
+        <div class="col-md-2">
+            @{Html.RenderAction("AdscatePartial", "Ads");}
+        </div>
+        <div class="col-md-10">
+            <h2>Thông tin người dùng</h2>
+
+            <div>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HOTEN)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.HOTEN)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.GIOITINH)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.GIOITINH)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NGAYSINH)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NGAYSINH)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SODIENTHOAI)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SODIENTHOAI)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EMAIL)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.EMAIL)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DIACHI)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DIACHI)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MATKHAU)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MATKHAU)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Thay đổi", "EditUser", new { id = Model.MANGUOIDUNG } , new { @class = "btn btn-primary" })
+            </p>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />

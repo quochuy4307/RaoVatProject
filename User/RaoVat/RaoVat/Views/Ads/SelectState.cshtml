@@ -1,0 +1,3 @@
+﻿@model RaoVat.Models.TINHTHANHPHO
+@Html.DropDownListFor(model => model.MATHANHPHO,
+new SelectList(Model.ListTinhThanhPho.OrderBy(model => model.TENTHANHPHO), "MATHANHPHO", "TENTHANHPHO"), "--Chọn Tỉnh, Thành Phố--")
