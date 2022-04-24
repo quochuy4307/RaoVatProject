@@ -1,0 +1,173 @@
+﻿@*@model IEnumerable<RaoVat.Models.RAOVAT>*@
+@using RaoVat.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<RAOVAT>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+
+    // List hình thức
+    List<SelectListItem> l1 = new List<SelectListItem>();
+    l1.Add(new SelectListItem() { Text = "Cần Bán" });
+    l1.Add(new SelectListItem() { Text = "Tìm Kiếm" });
+
+    // List tình trạng
+    List<SelectListItem> l2 = new List<SelectListItem>();
+    l2.Add(new SelectListItem() { Text = "Hàng Mới" });
+    l2.Add(new SelectListItem() { Text = "Hàng Đã Qua Sử Dụng" });
+
+    // List sắp xếp giá
+    List<SelectListItem> l3 = new List<SelectListItem>();
+    l3.Add(new SelectListItem() { Text = "Giá Tăng Dần" });
+    l3.Add(new SelectListItem() { Text = "Giá Giảm Dần" });
+
+    // List tỉnh, thành phố
+    List<SelectListItem> l4 = new List<SelectListItem>();
+    l4.Add(new SelectListItem() { Text = "Thành phố Hà Nội" });
+    l4.Add(new SelectListItem() { Text = "Thành phố Hải Phòng" });
+    l4.Add(new SelectListItem() { Text = "Thành phố Đà Nẵng" });
+    l4.Add(new SelectListItem() { Text = "Thành phố Hồ Chí Minh" });
+    l4.Add(new SelectListItem() { Text = "Thành phố Cần Thơ" });
+}
+<style>
+    .MenuPage {
+        display: grid;
+    }
+
+    .formtim {
+        position: relative;
+        display: inline-block;
+        padding-left: 200px;
+    }
+    .bntcss{
+        display: inline-block;
+        padding: 12px 36px 5px;
+        margin: 10px 0 0 400px;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 18px;
+        letter-spacing: 2px;
+        border-radius: 40px;
+        background: linear-gradient(90deg,#0162c8,#55e7fc);
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            @{ Html.RenderAction("CategoryPartial", "Categories");}
+        </div>
+
+        <div class="col-md-10" style="margin-top:10px">
+            <!-- Start Search Form -->
+            @using (Html.BeginForm("Search", "Categories", FormMethod.Get))
+            {
+                <div class="search-form">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-12 p-0">
+                            <div class="search-input">
+                                <label for="keyword"><i class="lni lni-search-alt theme-color"></i></label>
+                                <input type="text" name="keyword" id="keyword" placeholder="Nhập sản phầm cần tìm...">
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-12 p-0">
+                            <div class="search-btn button">
+                                <button class="btn"><i class="lni lni-search-alt"></i>Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Form -->
+                <form class="formtim">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-lg-1">
+                                @Html.DropDownList("HINHTHUC", l1, "Hình thức", new { @style = "width:auto", @class = "form-control" })
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </div>
+                            <div class="col-lg-2">
+                                @Html.DropDownList("TINHTRANG", l2, "Tình trạng", new { @style = "width:auto", @class = "form-control" })
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </div>
+                            <div class="col-lg-1">
+                                @Html.DropDownList("GIA", l3, "Sắp xếp giá", new { @style = "width:auto", @class = "form-control" })
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </div>
+                            <div class="col-lg-2">
+                                @Html.DropDownList("TENTHANHPHO", l4, "Địa điểm", new { @style = "width:auto", @class = "form-control" })
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+                <a class="bntcss" href="/Categories/SearchOption">Tìm Tin Theo Giá</a>
+            }
+            <br /><br /><br />
+            <!-- End Search Form -->
+            <section class="row-item-grid">
+                @foreach (var item in Model)
+                {
+                    @*<div class="card w-100 mg-all">
+                    <div class="row no-gutters">
+                        <div class="col-auto">
+                            <img src="@Url.Content(item.HINHANH1)" class="img-fluid img-mg" height="150px" width="150px" alt="">
+                        </div>
+                        <div class="col">
+                            <div class="card-block px-2 float-start">
+                                <h4 class="card-title">@Html.DisplayFor(itemmodel => item.TIEUDE)</h4>
+                                <h4 class="card-text h-color-price">Giá: @Html.DisplayFor(itemmodel => item.GIA)</h4>
+                                <a href="#" class="btn btn-primary btn-xct">Xem Chi Tiết</a>
+                                <a href="#" class="card-link"> <img src="~/Content/assets/images/categories/user-regular.svg" width="30" height="30" /> @Html.DisplayFor(itemmodel => item.USER.TENDANGNHAP)</a>
+                                <a href="#" class="card-link"> <img src="~/Content/assets/images/categories/maps-and-flags.png" width="30" height="30" /> @Html.DisplayFor(itemmodel => item.DIACHI)</a>
+                            </div>
+                            <div class="vl float-start"></div>
+                            <div class="card-block px-2 float-start">
+                                <p style="color:green"><img src="~/Content/assets/images/categories/phone-icon.png" width="20" height="20" /> @Html.DisplayFor(itemmodel => item.USER.SODIENTHOAI)</p>
+                                <p class="mg-p-t"><img src="~/Content/assets/images/categories/watch.svg" width="20" height="20" /> @Html.DisplayFor(itemmodel => item.NGAYGIODANG)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                    <div class="card mb-3" style="max-width: 100%;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="@Url.Content(item.HINHANH1)" class="card-img" height="250" width="200">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">@Html.DisplayFor(itemmodel => item.TIEUDE)</h5>
+                                    <p class="card-text h-color-price">Giá: @Html.DisplayFor(itemmodel => item.GIA)</p>
+                                    <p class="card-text"><img src="~/Content/assets/images/categories/user-regular.svg" width="20" height="20" /> @Html.DisplayFor(itemmodel => item.USER.TENDANGNHAP)</p>
+                                    <p class="card-text"><img src="~/Content/assets/images/categories/phone-icon.png" width="20" height="20" /> @Html.DisplayFor(itemmodel => item.USER.SODIENTHOAI)</p>
+                                    <p class="card-text"><small class="text-muted"><img src="~/Content/assets/images/categories/maps-and-flags.png" width="20" height="20" /> @Html.DisplayFor(itemmodel => item.DIACHI)</small></p>
+                                    <p class="card-text"><small class="text-muted"><img src="~/Content/assets/images/categories/watch.svg" width="20" height="20" /> @Html.DisplayFor(itemmodel => item.NGAYGIODANG)</small></p>
+                                    @Html.ActionLink("Xem Chi Tiết", "Detail", new { id = item.MATIN }, new { @class = "learn-more detailslearn btn btn-primary" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </section>
+            Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/ @Model.PageCount
+            <div class="MenuPage">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />

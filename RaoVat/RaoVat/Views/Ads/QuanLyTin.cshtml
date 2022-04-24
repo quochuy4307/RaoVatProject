@@ -1,0 +1,94 @@
+﻿@*@model IEnumerable<RaoVat.Models.RAOVAT>*@
+@using RaoVat.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<RAOVAT>
+
+@{
+    ViewBag.Title = "Quản Lý Tin";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+
+
+<div class="container-fluid bg-body" style="margin-top:100px">
+    <div class="row">
+        <div class="col-md-2">
+            @{Html.RenderAction("AdscatePartial", "Ads");}
+        </div>
+        <div class="col-md-10">
+            <h2>Quản Lý Tin</h2>
+            <table class="table">
+                <tr>
+                    <th>
+                        Tiêu Đề
+                    </th>
+                    <th>
+                        Ngày giờ đăng
+                    </th>
+                    <th>
+                        Giá
+                    </th>
+                    <th>
+                        Danh Mục
+                    </th>
+                    <th>
+                        Hình ảnh
+                    </th>
+                    <th>
+                        Trạng Thái
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TIEUDE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYGIODANG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GIA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CATEGORY.TENLOAI)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.HINHANH1)" height="50" width="50" />
+                </td>
+                @{
+                    if (item.MATRANGTHAI == 2)
+                    {
+                        <td style="color:red; font-weight: bold;">
+                            @Html.DisplayFor(modelItem => item.TRANGTHAI.TRANGTHAI1)
+                        </td>
+                    }
+                    else
+                    {
+                        <td style="color:green; font-weight: bold;">
+                            @Html.DisplayFor(modelItem => item.TRANGTHAI.TRANGTHAI1)
+                        </td>
+}
+                }
+                <td>
+                    @Html.ActionLink("Sửa", "Edit" , new { id = item.MATIN } , new { @class = "btn btn-warning" })
+                    <a class="btn btn-info" href="@Url.Action("Detail","Categories",new { id = item.MATIN },"")">Chi tiết</a>
+                    @Html.ActionLink("Xoá", "Delete", new { id = item.MATIN }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+                }
+
+            </table>
+
+            Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/ @Model.PageCount
+            <div class="MenuPage">
+                @Html.PagedListPager(Model, page => Url.Action("QuanLyTin", new { page = page }))
+            </div>
+            <br />
+            <br />
+        </div>
+    </div>
+</div>

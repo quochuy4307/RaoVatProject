@@ -1,0 +1,136 @@
+﻿@model RaoVat.Models.RAOVAT
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="container-fluid bg-body" style="margin-top:100px">
+    <div class="row">
+        <div class="col-md-2">
+            @{Html.RenderAction("AdscatePartial", "Ads");}
+        </div>
+        <div class="col-md-10">
+            <h2>Xóa Tin</h2>
+
+            <h3>Bạn chắc chắn muốn xóa tin này?</h3>
+            <div>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TIEUDE)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TIEUDE)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HINHANH1)
+                    </dt>
+
+                    <dd>
+                        <img src="@Url.Content(Model.HINHANH1)" width="150" height="150"/>
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NOIDUNG)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NOIDUNG)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NGAYGIODANG)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NGAYGIODANG)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.GIA)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.GIA)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DIACHI)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DIACHI)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NGAYHETHAN)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NGAYHETHAN)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CATEGORY.TENLOAI)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CATEGORY.TENLOAI)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HINHTHUC.HINHTHUC1)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.HINHTHUC.HINHTHUC1)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LOAITIN.LOAITIN1)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LOAITIN.LOAITIN1)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TINHTRANG.TINHTRANG1)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TINHTRANG.TINHTRANG1)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TRANGTHAI.TRANGTHAI1)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TRANGTHAI.TRANGTHAI1)
+                    </dd>
+
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-primary" /> |
+                        @Html.ActionLink("Về Danh sách", "QuanLyTin")
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+
