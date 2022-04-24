@@ -167,9 +167,9 @@ namespace RaoVat.Controllers
             var verifyUrl = "/User/" + emailFor + "/" + activationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
 
-            var fromEmail = new MailAddress("quchuy0@gmail.com", "Rao Vặt");
+            var fromEmail = new MailAddress("raovat.huflit@gmail.com", "Rao Vặt");
             var toEmail = new MailAddress(emailID);
-            var fromEmailPassword = "180320Huy"; // Replace with actual password
+            var fromEmailPassword = "raovat2889"; // Replace with actual password
 
             string subject = "";
             string body = "";

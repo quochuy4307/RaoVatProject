@@ -34,10 +34,9 @@
                 <div class="hero-text text-center">
                     <!-- Start Hero Text -->
                     <div class="section-heading">
-                        <h2 class="wow fadeInUp" data-wow-delay=".3s">Chào mừng đến với RaoVat</h2>
+                        <h2 class="wow fadeInUp" data-wow-delay=".3s">Chào mừng</h2>
                         <p class="wow fadeInUp" data-wow-delay=".5s">
-                            Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và <br> máy tính,
-                            Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                            Để đăng tin rao vặt, quảng cáo, hãy đăng ký ngay bây giờ!
                         </p>
                     </div>
                     <!-- End Search Form -->
@@ -55,7 +54,7 @@
                                 <div class="col-lg-3 col-md-3 col-12 p-0">
                                     <div class="search-input">
                                         <label for="category"><i class="lni lni-grid-alt theme-color"></i></label>               
-                                        @Html.DropDownList("TENLOAI", l1, "Mục rao vặt", new { @style = "width:auto", @class = "form-control" })
+                                        @Html.DropDownList("TENLOAI", l1, "Mục rao vặt", new { @style = "width:100%", @class = "form-control" })
                                         @*<select name="category" id="category">
                                             <option value="none" selected disabled>Mục rao vặt</option>
                                             <option value="1">Xe</option>
@@ -75,7 +74,7 @@
                                 <div class="col-lg-3 col-md-3 col-12 p-0">
                                     <div class="search-input">
                                         <label for="location"><i class="lni lni-map-marker theme-color"></i></label>
-                                        @Html.DropDownList("TENTHANHPHO", l2, "Địa điểm", new { @style = "width:auto", @class = "form-control" })
+                                        @Html.DropDownList("TENTHANHPHO", l2, "Địa điểm", new { @style = "width:100%", @class = "form-control" })
                                         @*<select name="location" id="location">
                                             <option value="none" selected disabled>Địa điểm</option>
                                             <option value="79">Thành phố Hồ Chí Minh</option>
@@ -88,7 +87,7 @@
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-12 p-0">
                                     <div class="search-btn button">
-                                        <button class="btn"><i class="lni lni-search-alt"></i>Tìm kiếm</button>
+                                        <button class="btn"><i class="lni lni-search-alt"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +109,7 @@
                 <div class="col-12 p-0">
                     <div class="category-slider">
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Xe" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Xe" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/car.svg" alt="#">
                             </div>
@@ -118,7 +117,7 @@
                             <h5 class="total">@Model.Count(x => x.MALOAI == 1)</h5>
                         </a>
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Đồ điện tử" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Đồ điện tử" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/laptop.svg" alt="#">
                             </div>
@@ -127,7 +126,7 @@
                         </a>
                         <!-- End Single Category -->
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Hôn nhân" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Hôn nhân" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/matrimony.svg" alt="#">
                             </div>
@@ -136,7 +135,7 @@
                         </a>
                         <!-- End Single Category -->
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Nội thất" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Nội thất" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/furniture.svg" alt="#">
                             </div>
@@ -145,7 +144,7 @@
                         </a>
                         <!-- End Single Category -->
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Công việc" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Công việc" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/jobs.svg" alt="#">
                             </div>
@@ -154,7 +153,7 @@
                         </a>
                         <!-- End Single Category -->
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Địa ốc" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Địa ốc" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/real-estate.svg" alt="#">
                             </div>
@@ -163,7 +162,7 @@
                         </a>
                         <!-- End Single Category -->
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Sức khỏe và làm đẹp" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Sức khỏe và làm đẹp" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/hospital.svg" alt="#">
                             </div>
@@ -172,7 +171,7 @@
                         </a>
                         <!-- End Single Category -->
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Thời trang" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Thời trang" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/tshirt.svg" alt="#">
                             </div>
@@ -181,7 +180,7 @@
                         </a>
                         <!-- End Single Category -->
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Giáo dục" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Giáo dục" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/education.svg" alt="#">
                             </div>
@@ -190,7 +189,7 @@
                         </a>
                         <!-- End Single Category -->
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Dụng cụ" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Dụng cụ" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/controller.svg" alt="#">
                             </div>
@@ -199,7 +198,7 @@
                         </a>
                         <!-- End Single Category -->
                         <!-- Start Single Category -->
-                        <a href="@Url.Action("Index","Categories",new { category = "Du lịch" }, "")" class="single-cat">
+                        <a @*href="@Url.Action("Index","Categories",new { category = "Du lịch" }, "")"*@ class="single-cat">
                             <div class="icon">
                                 <img src="~/Content/assets/images/categories/travel.svg" alt="#">
                             </div>
@@ -222,8 +221,7 @@
                 <div class="section-title">
                     <h2 class="wow fadeInUp" data-wow-delay=".4s">Các tin mới nhất</h2>
                     <p class="wow fadeInUp" data-wow-delay=".6s">
-                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
-                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                        Sản phẩm được xem nhiều nhất trong ngày.
                     </p>
                 </div>
             </div>
@@ -292,8 +290,7 @@
                 <div class="section-title">
                     <h2 class="wow fadeInUp" data-wow-delay=".4s">Tại sao chọn chúng tôi</h2>
                     <p class="wow fadeInUp" data-wow-delay=".6s">
-                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
-                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                        Lợi ích khi sử dụng website của chúng tôi
                     </p>
                 </div>
             </div>
@@ -306,10 +303,9 @@
                             <!-- Start Single List -->
                             <div class="single-list wow fadeInUp" data-wow-delay=".2s">
                                 <i class="lni lni-book"></i>
-                                <h4>Đầy đủ tài liệu</h4>
+                                <h4>Đầy đủ các mặt hàng</h4>
                                 <p>
-                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
-                                    cho tài sản.
+                                    Lợi ích khi sử dụng website của chúng tôi
                                 </p>
                             </div>
                             <!-- Start Single List -->
@@ -319,11 +315,10 @@
                             <div class="single-list wow fadeInUp" data-wow-delay=".4s">
                                 <i class="lni lni-leaf"></i>
                                 <h4>
-                                    Thiết kế sạch sẽ và hiện đại
+                                    Thiết kế đẹp mắt và hiện đại
                                 </h4>
                                 <p>
-                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
-                                    cho tài sản.
+                                    Lợi ích khi sử dụng website của chúng tôi
                                 </p>
                             </div>
                             <!-- Start Single List -->
@@ -334,8 +329,7 @@
                                 <i class="lni lni-cog"></i>
                                 <h4>Hoàn toàn có thể tùy chỉnh</h4>
                                 <p>
-                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
-                                    cho tài sản.
+                                    Lợi ích khi sử dụng website của chúng tôi
                                 </p>
                             </div>
                             <!-- Start Single List -->
@@ -346,8 +340,7 @@
                                 <i class="lni lni-pointer-up"></i>
                                 <h4>Thân thiện với người dùng</h4>
                                 <p>
-                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
-                                    cho tài sản.
+                                    Lợi ích khi sử dụng website của chúng tôi
                                 </p>
                             </div>
                             <!-- Start Single List -->
@@ -358,10 +351,8 @@
                                 <i class="lni lni-layout"></i>
                                 <h4>Giao diện tuyệt vời</h4>
                                 <p>
-                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
-                                    cho tài sản.
-                                </p>
-                            </div>
+                                    Lợi ích khi sử dụng website của chúng tôi
+</div>
                             <!-- Start Single List -->
                         </div>
                         <div class="col-lg-4 col-md-6 col-12">
@@ -372,8 +363,7 @@
                                     Đáp ứng đầy đủ
                                 </h4>
                                 <p>
-                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
-                                    cho tài sản.
+                                    Lợi ích khi sử dụng website của chúng tôi
                                 </p>
                             </div>
                             <!-- Start Single List -->
@@ -393,8 +383,7 @@
                 <div class="section-title">
                     <h2 class="wow fadeInUp" data-wow-delay=".4s">Hướng dẫn</h2>
                     <p class="wow fadeInUp" data-wow-delay=".6s">
-                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
-                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                        Hướng dẫn mua và bán sản phẩm
                     </p>
                 </div>
             </div>
@@ -404,10 +393,9 @@
                 <!-- Start Single Work -->
                 <div class="single-work wow fadeInUp" data-wow-delay=".2s">
                     <span class="serial">01</span>
-                    <h3>Tạo tài khoản</h3>
+                    <h3>Tạo tài khoản và đăng nhập</h3>
                     <p>
-                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
-                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                        Hướng dẫn mua và bán sản phẩm
                     </p>
                 </div>
                 <!-- End Single Work -->
@@ -418,8 +406,7 @@
                     <span class="serial">02</span>
                     <h3>Đăng quảng cáo của bạn</h3>
                     <p>
-                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
-                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                        Hướng dẫn mua và bán sản phẩm
                     </p>
                 </div>
                 <!-- End Single Work -->
@@ -432,8 +419,7 @@
                         Bán mặt hàng của bạn
                     </h3>
                     <p>
-                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
-                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                        Hướng dẫn mua và bán sản phẩm
                     </p>
                 </div>
                 <!-- End Single Work -->

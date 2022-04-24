@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RaoVat</RootNamespace>
     <AssemblyName>RaoVat</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44377</IISExpressSSLPort>
@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,6 +57,7 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -64,16 +66,14 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -133,7 +133,9 @@
     <Content Include="Content\assets\images\clients\client4.svg" />
     <Content Include="Content\assets\images\clients\client5.svg" />
     <Content Include="Content\assets\images\favicon.svg" />
+    <Content Include="Content\assets\images\hero\6.png" />
     <Content Include="Content\assets\images\hero\hero-bg.jpg" />
+    <Content Include="Content\assets\images\hero\icon.png" />
     <Content Include="Content\assets\images\items-grid\author-1.jpg" />
     <Content Include="Content\assets\images\items-grid\author-2.jpg" />
     <Content Include="Content\assets\images\items-grid\author-3.jpg" />
@@ -148,7 +150,8 @@
     <Content Include="Content\assets\images\items-grid\img5.jpg" />
     <Content Include="Content\assets\images\items-grid\img6.jpg" />
     <Content Include="Content\assets\images\logo\logo.svg" />
-    <Content Include="Content\assets\images\logo\logo1.png" />
+    <Content Include="Content\assets\images\logo\logo2.png" />
+    <Content Include="Content\assets\images\newsletter\gmail.jpg" />
     <Content Include="Content\assets\images\newsletter\newsletter-bg.png" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\count-up.min.js" />
@@ -248,6 +251,7 @@
     <Content Include="Content\img\img6.jpg" />
     <Content Include="Content\img\iphone12.jpg" />
     <Content Include="Content\img\test-laptop1.jpg" />
+    <Content Include="Content\img\test-laptop2.jpg" />
     <Content Include="Content\img\upload-i.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\registeruserassets\css\main.css" />

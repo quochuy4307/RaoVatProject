@@ -963,7 +963,7 @@ ol {
 }
 
 .section {
-  padding-top: 100px;
+  padding-top: 70px;
   padding-bottom: 100px;
   position: relative;
 }
@@ -987,17 +987,17 @@ ol {
   padding-bottom: 20px;
 }
 
-.section-title h2:before {
-  position: absolute;
-  left: 50%;
-  margin-left: -25px;
-  bottom: -2px;
-  height: 4px;
-  width: 50px;
-  border-radius: 5px;
-  background: #0d6efd;
-  content: "";
-}
+    .section-title h2:before {
+        position: absolute;
+        left: 50%;
+        margin-left: -150px;
+        bottom: -2px;
+        height: 4px;
+        width: 300px;
+        border-radius: 5px;
+        background: #DC143C;
+        content: "";
+    }
 
 .section-title p {
   font-size: 16px;
@@ -1268,11 +1268,11 @@ ol {
 	01. Start Header CSS
 ========================================*/
 .header {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: #fff;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #00BFFF !important;
 }
 
 .header .login-button {
@@ -1288,7 +1288,7 @@ ol {
   display: inline-block;
   margin-right: 10px;
   padding-right: 10px;
-  border-right: 1px solid #eee;
+  border-right: 2px solid #eee;
   height: 100%;
 }
 
@@ -1300,7 +1300,7 @@ ol {
 
 .header .login-button ul li a {
   color: #081828;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -1476,7 +1476,7 @@ ol {
 }
 
 .navbar-brand img {
-  width: 190px;
+  width: 100px;
 }
 
 .mobile-menu-btn {
@@ -1570,7 +1570,7 @@ ol {
 }
 
 .navbar-nav .nav-item a {
-  font-size: 15px;
+  font-size: 20px;
   color: #081828;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
@@ -1917,13 +1917,13 @@ ol {
     Hero Area CSS
 ========================================*/
 .hero-area {
-  background-image: url("../images/hero/hero-bg.jpg");
+  background-image: url("../images/hero/6.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   z-index: 2;
-  padding-top: 250px;
-  padding-bottom: 300px;
+  padding-top: 150px;
+  padding-bottom: 200px;
   z-index: 2;
 }
 
@@ -1999,17 +1999,17 @@ ol {
   position: relative;
 }
 
-.hero-area .hero-text h2::before {
-  position: absolute;
-  content: "";
-  left: 50%;
-  bottom: -2px;
-  height: 4px;
-  width: 60px;
-  margin-left: -30px;
-  background: #0d6efd;
-  border-radius: 10px;
-}
+    .hero-area .hero-text h2::before {
+        position: absolute;
+        content: "";
+        left: 50%;
+        bottom: -2px;
+        height: 4px;
+        width: 300px;
+        margin-left: -150px;
+        background: #DC143C;
+        border-radius: 10px;
+    }
 
 .hero-area .hero-text p {
   color: #ddd;
@@ -2020,11 +2020,11 @@ ol {
 
 /* Hero Search Form */
 .search-form {
-  margin-top: 60px;
-  background: #fff3;
-  border-radius: 6px;
-  padding: 30px;
-  padding-right: 45px;
+    margin-top: 60px;
+    background: #808080;
+    /*border-radius: 6px;*/
+    padding: 30px;
+    padding-right: 45px;
 }
 
 .search-form.style2 {
@@ -3501,16 +3501,16 @@ blockquote .shape {
   right: -23px;
 }
 
-.categories .cat-inner {
-  padding: 30px 40px;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  position: relative;
-  z-index: 9;
-  background: #fff;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+    .categories .cat-inner {
+        padding: 5px 50px;
+        border: 3px solid #0000FF;
+        border-radius: 10px;
+        position: relative;
+        z-index: 9;
+        background: #ADD8E6;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
 
 .categories.style2 {
   height: auto;
@@ -3909,11 +3909,11 @@ blockquote .shape {
     Ads Grid CSS
 ========================================*/
 .items-grid {
-  background: #f9f9f9;
+    background: #DCDCDC;
 }
 
 .items-grid.custom-padding {
-  padding-top: 220px;
+  padding-top: 170px;
 }
 
 .items-grid .section-title {
@@ -3994,18 +3994,17 @@ blockquote .shape {
   margin-left: 5px;
 }
 
-.items-grid .single-grid .image .author .sale {
-  display: inline-block;
-  background: #0d6efd;
-  color: #fff;
-  font-size: 14px;
-  float: right;
-  font-weight: 500;
-  padding: 7px 15px;
-  border-radius: 6px;
-  font-family: 'Jost',
-    sans-serif;
-}
+    .items-grid .single-grid .image .author .sale {
+        display: inline-block;
+        background: #DC143C;
+        color: #fff;
+        font-size: 14px;
+        float: right;
+        font-weight: 500;
+        padding: 7px 15px;
+        border-radius: 6px;
+        font-family: 'Jost', sans-serif;
+    }
 
 .items-grid .single-grid .image .item-position {
   display: inline-block;
@@ -4185,9 +4184,9 @@ blockquote .shape {
     Newsletter CSS
 ========================================*/
 .newsletter {
-  padding: 80px;
+  padding: 50px;
   background-color: #0d6efd;
-  background-image: url(../images/newsletter/newsletter-bg.png);
+  background-image: url(../images/newsletter/gmail.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -4201,63 +4200,65 @@ blockquote .shape {
   padding-left: 80px;
 }
 
-.newsletter .title i {
-  height: 60px;
-  width: 60px;
-  line-height: 60px;
-  text-align: center;
-  display: inline-block;
-  background: #fff;
-  color: #0d6efd;
-  border-radius: 50%;
-  font-size: 20px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+    .newsletter .title i {
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+        text-align: center;
+        display: inline-block;
+        background: #fff;
+        color: #0d6efd;
+        border-radius: 50%;
+        border: 1px solid #000000;
+        font-size: 20px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
 
-.newsletter .title h2 {
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 50px;
-  color: #fff;
-  line-height: 40px;
-}
+    .newsletter .title h2 {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 50px;
+        color: #000000;
+        line-height: 40px;
+    }
 
-.newsletter .title p {
-  color: #fff;
-  display: block;
-  margin-top: 0px;
-  font-size: 16px;
-  font-family: 'Jost',
-    sans-serif;
-}
+    .newsletter .title p {
+        color: #000000;
+        display: block;
+        margin-top: 0px;
+        font-size: 16px;
+        font-family: 'Jost', sans-serif;
+    }
 
 .newsletter .newsletter-form {
   padding-left: 80px;
   position: relative;
+
 }
 
-.newsletter .newsletter-form input {
-  height: 55px;
-  width: 100%;
-  display: inline-block;
-  background: transparent;
-  border: none;
-  color: #fff;
-  border: 2px solid #fff;
-  border-radius: 6px;
-  padding: 0 142px 0 20px;
-  color: #fff !important;
-  font-size: 16px;
-  border-radius: 6px;
-}
+    .newsletter .newsletter-form input {
+        height: 55px;
+        width: 100%;
+        display: inline-block;
+        background: transparent;
+        border: none;
+        color: #fff;
+        border: 2px solid #000000;
+        border-radius: 6px;
+        padding: 0 142px 0 20px;
+        color: #000000 !important;
+        font-size: 16px;
+        
+        border-radius: 6px;
+    }
 
 .newsletter .newsletter-form ::-webkit-input-placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #fff;
+  color: #000000;
   opacity: 1;
   /* Firefox */
 }
@@ -4299,13 +4300,13 @@ blockquote .shape {
   right: 0;
 }
 
-.newsletter .newsletter-form .button .btn {
-  display: inline-block;
-  background: #fff;
-  color: #0d6efd;
-  height: 55px;
-  border-radius: 0px 6px 6px 0;
-}
+    .newsletter .newsletter-form .button .btn {
+        display: inline-block;
+        background: #000000;
+        color: #fff;
+        height: 55px;
+        border-radius: 0px 6px 6px 0;
+    }
 
 .newsletter .newsletter-form .button .btn:hover {
   color: #081828;
@@ -4330,37 +4331,37 @@ blockquote .shape {
 }
 
 .why-choose .choose-content .single-list {
-  position: relative;
-  margin-top: 30px;
-  padding: 40px;
-  background-color: #f9f9f9;
-  text-align: center;
-  border: 1px solid #eee;
-  border-radius: 6px;
+    position: relative;
+    margin-top: 30px;
+    padding: 40px;
+    background-color: #DCDCDC;
+    text-align: center;
+    border: 2px solid #3CB371;
+    border-radius: 6px;
 }
 
-.why-choose .choose-content .single-list i {
-  color: #0d6efd;
-  font-size: 25px;
-  display: inline-block;
-  margin-bottom: 30px;
-  height: 70px;
-  width: 70px;
-  line-height: 62px;
-  text-align: center;
-  border-radius: 50%;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-  background-color: #0d6efd;
-  color: #fff;
-  border: 4px solid transparent;
-}
+    .why-choose .choose-content .single-list i {
+        color: #3CB371;
+        font-size: 25px;
+        display: inline-block;
+        margin-bottom: 30px;
+        height: 70px;
+        width: 70px;
+        line-height: 62px;
+        text-align: center;
+        border-radius: 50%;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        background-color: #3CB371;
+        color: #fff;
+        border: 4px solid transparent;
+    }
 
-.why-choose .choose-content .single-list:hover i {
-  color: #0d6efd;
-  background-color: transparent;
-  border-color: #0d6efd;
-}
+    .why-choose .choose-content .single-list:hover i {
+        color: #3CB371;
+        background-color: transparent;
+        border-color: #3CB371;
+    }
 
 .why-choose .choose-content .single-list h4 {
   font-size: 20px;
@@ -4378,36 +4379,36 @@ blockquote .shape {
   background-color: #f9f9f9;
 }
 
-.how-works .single-work {
-  text-align: center;
-  padding: 40px;
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 6px;
-}
+    .how-works .single-work {
+        text-align: center;
+        padding: 40px;
+        background-color: #DCDCDC;
+        border: 2px solid #3CB371;
+        border-radius: 6px;
+    }
 
-.how-works .single-work .serial {
-  height: 80px;
-  width: 80px;
-  line-height: 68px;
-  background-color: #0d6efd;
-  color: #fff;
-  text-align: center;
-  border-radius: 50%;
-  border: 6px solid #b29cfb;
-  display: inline-block;
-  margin-bottom: 25px;
-  font-weight: 700;
-  font-size: 25px;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-}
+    .how-works .single-work .serial {
+        height: 80px;
+        width: 80px;
+        line-height: 68px;
+        background-color: #00FA9A;
+        color: #fff;
+        text-align: center;
+        border-radius: 50%;
+        border: 6px solid #3CB371;
+        display: inline-block;
+        margin-bottom: 25px;
+        font-weight: 700;
+        font-size: 25px;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
 
-.how-works .single-work:hover .serial {
-  color: #0d6efd;
-  background-color: transparent;
-  border-color: #0d6efd;
-}
+    .how-works .single-work:hover .serial {
+        color: #3CB371;
+        background-color: transparent;
+        border-color: #3CB371;
+    }
 
 .how-works .single-work h3 {
   font-size: 24px;
@@ -6277,12 +6278,12 @@ blockquote .shape {
 	Footer CSS
 ========================================*/
 .footer {
-  background: #081828;
+    background: #00bfff;
 }
 
 .footer .footer-top {
-  padding: 100px 0;
-  padding-top: 70px;
+  padding: 20px 0;
+  padding-top: 10px;
   border-bottom: 1px solid #ebebeb s;
 }
 
@@ -6342,34 +6343,34 @@ blockquote .shape {
   margin: 0;
 }
 
-.footer .single-footer.f-link li a {
-  font-size: 15px;
-  font-weight: 400;
-  color: #e1e1e1;
-}
+    .footer .single-footer.f-link li a {
+        font-size: 15px;
+        font-weight: 400;
+        color: #000000;
+    }
 
 .footer .single-footer.f-link li a:hover {
   color: #0d6efd;
 }
 
-.footer .single-footer.f-contact ul li {
-  display: block;
-  margin-bottom: 25px;
-  line-height: 25px;
-  color: #e1e1e1;
-}
+    .footer .single-footer.f-contact ul li {
+        display: block;
+        margin-bottom: 25px;
+        line-height: 25px;
+        color: #000000;
+    }
 
 .footer .single-footer.f-contact ul li:last-child {
   margin-bottom: 0;
 }
 
-.footer .single-footer h3 {
-  font-size: 18px;
-  font-weight: 600;
-  display: block;
-  margin-bottom: 35px;
-  color: #fff;
-}
+    .footer .single-footer h3 {
+        font-size: 18px;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 35px;
+        color: #000000;
+    }
 
 .footer .footer-bottom {
   text-align: center;
@@ -6378,8 +6379,8 @@ blockquote .shape {
 }
 
 .footer .footer-bottom .inner {
-  border-top: 1px solid #ebebeb4f;
-  padding: 50px 0;
+  border-top: 3px solid #ebebeb4f;
+  padding: 20px 0;
 }
 
 .footer .footer-bottom .footer-bottom-links li {
@@ -6417,23 +6418,22 @@ blockquote .shape {
   color: #0d6efd;
 }
 
-.footer .footer-bottom .copyright-text {
-  margin-top: 15px;
-  color: #e1e1e1;
-  font-family: 'Jost',
-    sans-serif;
-}
+    .footer .footer-bottom .copyright-text {
+        margin-top: 15px;
+        color: #000000;
+        font-family: 'Jost', sans-serif;
+    }
 
-.footer .footer-bottom .copyright-text a {
-  color: #e1e1e1;
-}
+        .footer .footer-bottom .copyright-text a {
+            color: #000000;
+        }
 
 .footer .footer-bottom .copyright-text a:hover {
   color: #0d6efd;
 }
 
 .footer .footer-bottom .footer-social {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .footer .footer-bottom .footer-social li {
@@ -6445,17 +6445,17 @@ blockquote .shape {
   margin: 0;
 }
 
-.footer .footer-bottom .footer-social li a {
-  height: 40px;
-  width: 40px;
-  line-height: 40px;
-  text-align: center;
-  display: block;
-  border-radius: 50%;
-  color: #fff;
-  background: transparent;
-  border: 1px solid #eee3;
-}
+    .footer .footer-bottom .footer-social li a {
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        text-align: center;
+        display: block;
+        border-radius: 50%;
+        color: #fff;
+        background: transparent;
+        border: 2px solid #000000;
+    }
 
 .footer .footer-bottom .footer-social li a:hover {
   color: #fff;
