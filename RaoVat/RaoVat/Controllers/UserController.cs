@@ -34,7 +34,7 @@ namespace RaoVat.Controllers
                 db.Configuration.ValidateOnSaveEnabled = false;
                 Session["TENDANGNHAP"] = _username;
                 Session["MATKHAU"] = _pass;
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("TrangChu", "Home");
             }
         }
         public ActionResult RegisterUser()
