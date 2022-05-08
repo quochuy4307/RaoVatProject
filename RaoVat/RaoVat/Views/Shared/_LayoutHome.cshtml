@@ -1,536 +1,493 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
 
+<html>
 <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>NexusPlus - Classified Ads and Listing Template</title>
-
-	<link rel="stylesheet" type="text/css" href="~/Content/dangtinassets/css/bootstrap.min.css">
-
-	<link rel="stylesheet" type="text/css" href="~/Content/dangtinassets/fonts/line-icons.css">
-
-	<link rel="stylesheet" type="text/css" href="~/Content/dangtinassets/css/slicknav.css">
-
-	<link rel="stylesheet" type="text/css" href="~/Content/dangtinassets/css/color-switcher.css">
-
-	<link rel="stylesheet" type="text/css" href="~/Content/dangtinassets/css/summernote.css">
-
-	<link rel="stylesheet" type="text/css" href="~/Content/dangtinassets/css/animate.css">
-
-	<link rel="stylesheet" type="text/css" href="~/Content/dangtinassets/css/owl.carousel.css">
-
-	<link rel="stylesheet" type="text/css" href="~/Content/dangtinassets/css/main.css">
-
-	<link rel="stylesheet" type="text/css" href="~/Content/dangtinassets/css/responsive.css">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="~/Content/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/animate.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/glightbox.min.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/main.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/cate.css" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
 <body>
+    @if (Session["TENDANGNHAP"] == null)
+    {
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="preloader-inner">
+                <div class="preloader-icon">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <!-- /End Preloader -->
+        <!-- Start Header Area -->
+        <header class="header navbar-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="nav-inner">
+                            <nav class="navbar navbar-expand-lg">
+                                <a class="navbar-brand" href="/Home/Index">
+                                    <img src="~/Content/assets/images/logo/logo1.png" alt="Logo">
+                                </a>
+                                <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                    <ul id="nav" class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                                            <a href="/Home/Index">Trang Chủ</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:void(0)" aria-label="Toggle navigation">Danh mục sản phẩm</a>
+                                            <ul class="sub-menu mega-menu collapse" id="submenu-1-4">
+                                                <li class="single-block">
+                                                    <ul>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Xe" }, "")">Xe</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Đồ điện tử" }, "")">Đồ điện tử</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Hôn nhân" }, "")">Hôn nhân</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Nội thất" }, "")">Nội thất</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Công việc" }, "")">Công việc</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Địa ốc" }, "")">Địa ốc</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Sức khỏe và làm đẹp" }, "")">Sức khỏe và làm đẹp</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Thời trang" }, "")">Thời trang</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Giáo dục" }, "")">Giáo dục</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="single-block">
+                                                    <ul>
+                                                        <li class="nav-item">
+                                                            <a href="@Url.Action("Index","Categories",new { category = "Dụng cụ" }, "")">Dụng cụ</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="@Url.Action("Index","Categories",new { category = "Du lịch" }, "")">Du lịch</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="/Categories/Index">Tất cả danh mục</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div> <!-- navbar collapse -->
+                                <div class="login-button">
+                                    <ul>
+                                        <li>
+                                            <a href="/User/Index"><i class="lni lni-enter"></i> Đăng Nhập</a>
+                                        </li>
+                                        <li>
+                                            <a href="/User/RegisterUser"><i class="lni lni-user"></i> Đăng Ký</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="button header-button">
+                                    <a href="/Ads/Create" class="btn">Đăng Tin</a>
+                                </div>
+                            </nav> <!-- navbar -->
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </header>
 
-	<header id="header-wrap">
+        <!-- End Header Area -->
+        <div>
+            @RenderBody()
+        </div>
 
-		<div class="top-bar">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-7 col-md-5 col-xs-12">
+        <!-- Start Footer Area -->
+        <footer class="footer">
+            <!-- Start Footer Top -->
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer mobile-app">
+                                <h3></h3>
+                                <div>
+                                    <a class="navbar-brand" href="/Home/Index">
+                                        <src="~/Content/assets/images/logo/logo1.png" alt="Logo">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Địa điểm</h3>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <ul>
+                                            <li><a href="javascript:void(0)">TP.HCM</a></li>
+                                            <li><a href="javascript:void(0)">Hà Nội</a></li>
+                                            <li><a href="javascript:void(0)">Hải Phòng</a></li>
+                                            <li><a href="javascript:void(0)">Đà Nẵng</a></li>
+                                            <li><a href="javascript:void(0)">Cần Thơ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Thông tin</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Giới thiệu</a></li>
+                                    <li><a href="javascript:void(0)">Hướng Dẫn</a></li>
+                                    <li><a href="javascript:void(0)">Quy chế hoạt động</a></li>
+                                    <li><a href="javascript:void(0)">Cơ chế giải quyết tranh chấp</a></li>
+                                    <li><a href="javascript:void(0)">Chính sách bảo vệ thông tin</a></li>
+                                    <li><a href="javascript:void(0)">Trợ giúp</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-contact">
+                                <h3>Liên hệ</h3>
+                                <ul>
+                                    <li>CÔNG TY TNHH RAO VẶT<br> Địa chỉ: 363 Bình Trị Đông, Phường Bình Trị Đông A, Quận Bình Tân, TP Hồ Chí Minh</li>
+                                    <li>Đường dây nóng: (097)50569038 <br> Email: trogiup@raovat.vn</li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Footer Middle -->
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="inner">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="content">
+                                    <p class="copyright-text">
+                                        Được thiết kế và phát triển bởi <a href="https://raovat.com/"
+                                                                           rel="nofollow" target="_blank">RaoVat</a>
+                                    </p>
+                                    <ul class="footer-social">
+                                        <li><a href="https://www.facebook.com/luongdthong28899/"><i class="lni lni-facebook-filled"></i></a></li>
+                                        <li><a href="https://www.youtube.com/channel/UCuFI_vUPvA0yIycM8bgjxjg"><i class="lni lni-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer Middle -->
+        </footer>
+        <!--/ End Footer Area -->
+        <!-- ========================= scroll-top ========================= -->
+        <a href="#" class="scroll-top btn-hover">
+            <i class="lni lni-chevron-up"></i>
+        </a>
 
-						<ul class="list-inline">
-							<li><i class="lni-phone"></i> +0123 456 789</li>
-							<li><i class="lni-envelope"></i> <a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1d6e686d6d726f695d7a707c7471337e7270">[email&#160;protected]</a></li>
-						</ul>
+        <!-- ========================= JS here ========================= -->
+        <script src="~/Content/assets/js/bootstrap.min.js"></script>
+        <script src="~/Content/assets/js/wow.min.js"></script>
+        <script src="~/Content/assets/js/tiny-slider.js"></script>
+        <script src="~/Content/assets/js/glightbox.min.js"></script>
+        <script src="~/Content/assets/js/main.js"></script>
+        <script type="text/javascript">
+            //========= Category Slider
+            tns({
+                container: '.category-slider',
+                items: 3,
+                slideBy: 'page',
+                autoplay: false,
+                mouseDrag: true,
+                gutter: 0,
+                nav: false,
+                controls: true,
+                controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>'],
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    540: {
+                        items: 2,
+                    },
+                    768: {
+                        items: 4,
+                    },
+                    992: {
+                        items: 5,
+                    },
+                    1170: {
+                        items: 6,
+                    }
+                }
+            });
+        </script>
+    }
+    else
+    {
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="preloader-inner">
+                <div class="preloader-icon">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <!-- /End Preloader -->
+        <!-- Start Header Area -->
+        <header class="header navbar-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="nav-inner">
+                            <nav class="navbar navbar-expand-lg">
+                                <a class="navbar-brand" href="/Home/Index">
+                                    <img src="~/Content/assets/images/logo/logo1.png" alt="Logo">
+                                </a>
+                                <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                    <ul id="nav" class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                                            <a href="/Home/Index">Trang Chủ</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:void(0)" aria-label="Toggle navigation">Danh mục sản phẩm</a>
+                                            <ul class="sub-menu mega-menu collapse" id="submenu-1-4">
+                                                <li class="single-block">
+                                                    <ul>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Xe" }, "")">Xe</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Đồ điện tử" }, "")">Đồ điện tử</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Hôn nhân" }, "")">Hôn nhân</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Nội thất" }, "")">Nội thất</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Công việc" }, "")">Công việc</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Địa ốc" }, "")">Địa ốc</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Sức khỏe và làm đẹp" }, "")">Sức khỏe và làm đẹp</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Thời trang" }, "")">Thời trang</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Categories",new { category = "Giáo dục" }, "")">Giáo dục</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="single-block">
+                                                    <ul>
+                                                        <li class="nav-item">
+                                                            <a href="@Url.Action("Index","Categories",new { category = "Dụng cụ" }, "")">Dụng cụ</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="@Url.Action("Index","Categories",new { category = "Du lịch" }, "")">Du lịch</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="/Categories/Index">Tất cả danh mục</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div> <!-- navbar collapse -->
+                                <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                    <ul id="nav" class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                                            <a class=" dd-menu collapsed" href="javascript:void(0)"
+                                               data-bs-toggle="collapse" data-bs-target="#submenu-1-5"
+                                               aria-controls="navbarSupportedContent" aria-expanded="false"
+                                               aria-label="Toggle navigation"><img src="~/Content/assets/images/categories/user-regular.svg" width="30" height="30" />  @Session["TENDANGNHAP"]</a>
+                                            <ul class="sub-menu collapse" id="submenu-1-5">
+                                                <li class="nav-item">
+                                                    <a href="/Ads/QuanLyTin">Quản lý rao vặt</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    @{
+                                                        if (Session["TENDANGNHAP"] != null)
+                                                        {
+                                                            var a = Session["TENDANGNHAP"];
+                                                            <a href="@Url.Action("DetailInfo","Ads",new { id = a.ToString()})">Thông tin cá nhân</a>
+                                                        }
+                                                    }
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="@Url.Action("LogOutUser","User")">Đăng Xuất</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="button header-button">
+                                    <a href="/Ads/Create" class="btn">Đăng Tin</a>
+                                </div>
+                            </nav> <!-- navbar -->
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </header>
 
-					</div>
-					<div class="col-lg-5 col-md-7 col-xs-12">
-						<div class="roof-social float-right">
-							<a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
-							<a class="twitter" href="#"><i class="lni-twitter-filled"></i></a>
-							<a class="instagram" href="#"><i class="lni-instagram-filled"></i></a>
-							<a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a>
-							<a class="google" href="#"><i class="lni-google-plus"></i></a>
-						</div>
-						<div class="header-top-right float-right">
-							<a href="login.html" class="header-top-button"><i class="lni-lock"></i> Log In</a> |
-							<a href="register.html" class="header-top-button"><i class="lni-pencil"></i> Register</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <!-- End Header Area -->
+        <div>
+            @RenderBody()
+        </div>
 
+        <!-- Start Footer Area -->
+        <footer class="footer">
+            <!-- Start Footer Top -->
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer mobile-app">
+                                <h3></h3>
+                                <div>
+                                    <a class="navbar-brand" href="/Home/Index">
+                                        <img src="~/Content/assets/images/logo/logo1.png" alt="Logo">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Địa điểm</h3>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <ul>
+                                            <li><a href="javascript:void(0)">TP.HCM</a></li>
+                                            <li><a href="javascript:void(0)">Hà Nội</a></li>
+                                            <li><a href="javascript:void(0)">Hải Phòng</a></li>
+                                            <li><a href="javascript:void(0)">Đà Nẵng</a></li>
+                                            <li><a href="javascript:void(0)">Cần Thơ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Thông tin</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Giới thiệu</a></li>
+                                    <li><a href="javascript:void(0)">Hướng Dẫn</a></li>
+                                    <li><a href="javascript:void(0)">Quy chế hoạt động</a></li>
+                                    <li><a href="javascript:void(0)">Cơ chế giải quyết tranh chấp</a></li>
+                                    <li><a href="javascript:void(0)">Chính sách bảo vệ thông tin</a></li>
+                                    <li><a href="javascript:void(0)">Trợ giúp</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-contact">
+                                <h3>Liên hệ</h3>
+                                <ul>
+                                    <li>CÔNG TY TNHH RAO VẶT<br> Địa chỉ: 363 Bình Trị Đông, Phường Bình Trị Đông A, Quận Bình Tân, TP Hồ Chí Minh</li>
+                                    <li>Đường dây nóng: (097)50569038 <br> Email: trogiup@raovat.vn</li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Footer Middle -->
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="inner">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="content">
+                                    <p class="copyright-text">
+                                        Được thiết kế và phát triển bởi <a href="https://raovat.com/"
+                                                                           rel="nofollow" target="_blank">RaoVat</a>
+                                    </p>
+                                    <ul class="footer-social">
+                                        <li><a href="https://www.facebook.com/luongdthong28899/"><i class="lni lni-facebook-filled"></i></a></li>
+                                        <li><a href="https://www.youtube.com/channel/UCuFI_vUPvA0yIycM8bgjxjg"><i class="lni lni-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer Middle -->
+        </footer>
+        <!--/ End Footer Area -->
+        <!-- ========================= scroll-top ========================= -->
+        <a href="#" class="scroll-top btn-hover">
+            <i class="lni lni-chevron-up"></i>
+        </a>
 
-		<nav class="navbar navbar-expand-lg bg-white fixed-top scrolling-navbar">
-			<div class="container">
-
-				<div class="navbar-header">
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-						<span class="lni-menu"></span>
-						<span class="lni-menu"></span>
-						<span class="lni-menu"></span>
-					</button>
-					<a href="index-2.html" class="navbar-brand"><img src="~/Content/dangtinassets/img/logo.png" alt=""></a>
-
-				</div>
-				<div class="collapse navbar-collapse" id="main-navbar">
-					<ul class="navbar-nav mr-auto w-100 justify-content-center">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Home
-							</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="index-2.html">Home 1</a>
-								<a class="dropdown-item" href="index-3.html">Home 2</a>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="category.html">
-								Categories
-							</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Listings
-							</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="adlistinggrid.html">Ad Grid</a>
-								<a class="dropdown-item" href="adlistinglist.html">Ad Listing</a>
-								<a class="dropdown-item" href="ads-details.html">Listing Detail</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown active">
-							<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pages
-							</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="about.html">About Us</a>
-								<a class="dropdown-item" href="services.html">Services</a>
-								<a class="dropdown-item" href="ads-details.html">Ads Details</a>
-								<a class="dropdown-item active" href="post-ads.html">Ads Post</a>
-								<a class="dropdown-item" href="pricing.html">Packages</a>
-								<a class="dropdown-item" href="testimonial.html">Testimonial</a>
-								<a class="dropdown-item" href="faq.html">FAQ</a>
-								<a class="dropdown-item" href="404.html">404</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Blog
-							</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="blog.html">Blog - Right Sidebar</a>
-								<a class="dropdown-item" href="blog-left-sidebar.html">Blog - Left Sidebar</a>
-								<a class="dropdown-item" href="blog-grid-full-width.html"> Blog full width </a>
-								<a class="dropdown-item" href="single-post.html">Blog Details</a>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contact.html">
-								Contact
-							</a>
-						</li>
-					</ul>
-					<div class="post-btn">
-						<a class="btn btn-common" href="post-ads.html"><i class="lni-pencil-alt"></i> Post an Ad</a>
-					</div>
-				</div>
-			</div>
-
-			<ul class="mobile-menu">
-				<li>
-					<a href="#">
-						Home
-					</a>
-					<ul class="dropdown">
-						<li><a href="index-2.html">Home 1</a></li>
-						<li><a href="index-3.html">Home 2</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="category.html">Categories</a>
-				</li>
-				<li>
-					<a href="#">
-						Listings
-					</a>
-					<ul class="dropdown">
-						<li><a href="adlistinggrid.html">Ad Grid</a></li>
-						<li><a href="adlistinglist.html">Ad Listing</a></li>
-						<li><a href="ads-details.html">Listing Detail</a></li>
-					</ul>
-				</li>
-				<li>
-					<a class="active" href="#">Pages</a>
-					<ul class="dropdown">
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="services.html">Services</a></li>
-						<li><a href="ads-details.html">Ads Details</a></li>
-						<li><a class="active" href="post-ads.html">Ads Post</a></li>
-						<li><a href="pricing.html">Packages</a></li>
-						<li><a href="testimonial.html">Testimonial</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-						<li><a href="404.html">404</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="#">Blog</a>
-					<ul class="dropdown">
-						<li><a href="blog.html">Blog - Right Sidebar</a></li>
-						<li><a href="blog-left-sidebar.html">Blog - Left Sidebar</a></li>
-						<li><a href="blog-grid-full-width.html"> Blog full width </a></li>
-						<li><a href="single-post.html">Blog Details</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="contact.html">Contact Us</a>
-				</li>
-			</ul>
-
-		</nav>
-
-	</header>
-
-
-	<div class="page-header" style="background: url(~/Content/dangtinassets/img/banner1.jpg);">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="breadcrumb-wrapper">
-						<h2 class="product-title">Post you Ads</h2>
-						<ol class="breadcrumb">
-							<li><a href="#">Home /</a></li>
-							<li class="current">Post you Ads</li>
-						</ol>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<div id="content" class="section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-4 col-lg-3 page-sidebar">
-					<aside>
-						<div class="sidebar-box">
-							<div class="user">
-								<figure>
-									<a href="#"><img src="~/Content/dangtinassets/img/author/img1.jpg" alt=""></a>
-								</figure>
-								<div class="usercontent">
-									<h3>Hello William!</h3>
-									<h4>Administrator</h4>
-								</div>
-							</div>
-							<nav class="navdashboard">
-								<ul>
-									<li>
-										<a href="dashboard.html">
-											<i class="lni-dashboard"></i>
-											<span>Dashboard</span>
-										</a>
-									</li>
-									<li>
-										<a href="account-profile-setting.html">
-											<i class="lni-cog"></i>
-											<span>Profile Settings</span>
-										</a>
-									</li>
-									<li>
-										<a href="account-myads.html">
-											<i class="lni-layers"></i>
-											<span>My Ads</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="lni-envelope"></i>
-											<span>Offers/Messages</span>
-										</a>
-									</li>
-									<li>
-										<a href="payments.html">
-											<i class="lni-wallet"></i>
-											<span>Payments</span>
-										</a>
-									</li>
-									<li>
-										<a href="account-favourite-ads.html">
-											<i class="lni-heart"></i>
-											<span>My Favourites</span>
-										</a>
-									</li>
-									<li>
-										<a href="account-profile-setting.html">
-											<i class="lni-star"></i>
-											<span>Privacy Settings</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="lni-enter"></i>
-											<span>Logout</span>
-										</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-						<div class="widget">
-							<h4 class="widget-title">Advertisement</h4>
-							<div class="add-box">
-								<img class="img-fluid" src="~/Content/dangtinassets/img/img1.jpg" alt="">
-							</div>
-						</div>
-					</aside>
-				</div>
-				<div class="col-sm-12 col-md-8 col-lg-9">
-					<div class="row page-content">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
-							<div class="inner-box">
-								<div class="dashboard-box">
-									<h2 class="dashbord-title">Ad Detail</h2>
-								</div>
-								<div class="dashboard-wrapper">
-									<div class="form-group mb-3">
-										<label class="control-label">Project Title</label>
-										<input class="form-control input-md" name="Title" placeholder="Title" type="text">
-									</div>
-									<div class="form-group mb-3 tg-inputwithicon">
-										<label class="control-label">Categories</label>
-										<div class="tg-select form-control">
-											<select>
-												<option value="none">Select Categories</option>
-												<option value="none">Mobiles</option>
-												<option value="none">Electronics</option>
-												<option value="none">Training</option>
-												<option value="none">Real Estate</option>
-												<option value="none">Services</option>
-												<option value="none">Training</option>
-												<option value="none">Vehicles</option>
-											</select>
-										</div>
-									</div>
-									<div class="form-group mb-3">
-										<label class="control-label">Price Title</label>
-										<input class="form-control input-md" name="price" placeholder="Ad your Price" type="text">
-										<div class="tg-checkbox mt-3">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="tg-priceoncall">
-												<label class="custom-control-label" for="tg-priceoncall">Price On Call</label>
-											</div>
-										</div>
-									</div>
-									<div class="form-group md-3">
-										<section id="editor">
-											<div id="summernote">
-											</div>
-										</section>
-									</div>
-									<label class="tg-fileuploadlabel" for="tg-photogallery">
-										<span>Drop files anywhere to upload</span>
-										<span>Or</span>
-										<span class="btn btn-common">Select Files</span>
-										<span>Maximum upload file size: 500 KB</span>
-										<input id="tg-photogallery" class="tg-fileinput" type="file" name="file">
-									</label>
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
-							<div class="inner-box">
-								<div class="tg-contactdetail">
-									<div class="dashboard-box">
-										<h2 class="dashbord-title">Contact Detail</h2>
-									</div>
-									<div class="dashboard-wrapper">
-										<div class="form-group mb-3">
-											<strong>I’m a:</strong>
-											<div class="tg-selectgroup">
-												<span class="tg-radio">
-													<input id="tg-sameuser" type="radio" name="usertype" value="same user" checked="">
-													<label for="tg-sameuser">Same User</label>
-												</span>
-												<span class="tg-radio">
-													<input id="tg-someoneelse" type="radio" name="usertype" value="someone else">
-													<label for="tg-someoneelse">Someone Else</label>
-												</span>
-											</div>
-										</div>
-										<div class="form-group mb-3">
-											<label class="control-label">First Name*</label>
-											<input class="form-control input-md" name="name" type="text">
-										</div>
-										<div class="form-group mb-3">
-											<label class="control-label">Last Name*</label>
-											<input class="form-control input-md" name="name" type="text">
-										</div>
-										<div class="form-group mb-3">
-											<label class="control-label">Phone*</label>
-											<input class="form-control input-md" name="phone" type="text">
-										</div>
-										<div class="form-group mb-3">
-											<label class="control-label">Enter Address</label>
-											<input class="form-control input-md" name="address" type="text">
-										</div>
-										<div class="form-group mb-3">
-											<label class="control-label">Enter Address</label>
-											<input class="form-control input-md" name="address" type="text">
-										</div>
-										<div class="form-group mb-3 tg-inputwithicon">
-											<label class="control-label">Country</label>
-											<div class="tg-select form-control">
-												<select>
-													<option value="none">Select Country</option>
-													<option value="none">Country 1</option>
-													<option value="none">Country 2</option>
-													<option value="none">Country 3</option>
-													<option value="none">Country 4</option>
-													<option value="none">Country 5</option>
-													<option value="none">Country 6</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-group mb-3 tg-inputwithicon">
-											<label class="control-label">State</label>
-											<div class="tg-select form-control">
-												<select>
-													<option value="none">Select State</option>
-													<option value="none">Select State</option>
-													<option value="none">Select State</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-group mb-3 tg-inputwithicon">
-											<label class="control-label">City</label>
-											<div class="tg-select form-control">
-												<select>
-													<option value="none">Select City</option>
-													<option value="none">Select City</option>
-													<option value="none">Select City</option>
-												</select>
-											</div>
-										</div>
-										<div class="tg-checkbox">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="tg-agreetermsandrules">
-												<label class="custom-control-label" for="tg-agreetermsandrules">I agree to all <a href="javascript:void(0);">Terms of Use &amp; Posting Rules</a></label>
-											</div>
-										</div>
-										<button class="btn btn-common" type="button">Post Ad</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	@RenderBody()
-	<footer>
-
-		<section class="footer-Content">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 col-md-4 col-xs-6 col-mb-12">
-						<div class="widget">
-							<div class="footer-logo"><img src="~/Content/dangtinassets/img/logo.png" alt=""></div>
-							<div class="textwidget">
-								<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt consectetur, adipisci velit.</p>
-							</div>
-							<ul class="mt-3 footer-social">
-								<li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
-								<li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
-								<li><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li>
-								<li><a class="google-plus" href="#"><i class="lni-google-plus"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4 col-xs-6 col-mb-12">
-						<div class="widget">
-							<h3 class="block-title">Quick Link</h3>
-							<ul class="menu">
-								<li><a href="#">- About Us</a></li>
-								<li><a href="#">- Blog</a></li>
-								<li><a href="#">- Events</a></li>
-								<li><a href="#">- Shop</a></li>
-								<li><a href="#">- FAQ's</a></li>
-								<li><a href="#">- About Us</a></li>
-								<li><a href="#">- Blog</a></li>
-								<li><a href="#">- Events</a></li>
-								<li><a href="#">- Shop</a></li>
-								<li><a href="#">- FAQ's</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4 col-xs-6 col-mb-12">
-						<div class="widget">
-							<h3 class="block-title">Contact Info</h3>
-							<ul class="contact-footer">
-								<li>
-									<strong><i class="lni-phone"></i></strong><span>+1 555 444 66647 <br> +1 555 444 66647</span>
-								</li>
-								<li>
-									<strong><i class="lni-envelope"></i></strong><span><a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2f4c40415b4e4c5b6f424e4643014c4042">[email&#160;protected]</a> <br> <a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b8cbcdc8c8d7caccf8d5d9d1d496dbd7d5">[email&#160;protected]</a></span>
-								</li>
-								<li>
-									<strong><i class="lni-map-marker"></i></strong><span><a href="#">9870 St Vincent Place, Glasgow, DC 45 <br>Fr 45</a></span>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-
-		<div id="copyright">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="site-info text-center">
-							<p><a target="_blank" href="https://templateshub.net">Templates Hub</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</footer>
-
-
-	<a href="#" class="back-to-top">
-		<i class="lni-chevron-up"></i>
-	</a>
-
-	<div id="preloader">
-		<div class="loader" id="loader-1"></div>
-	</div>
-
-
-	<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-	<script src="~/Content/dangtinassets/js/jquery-min.js"></script>
-	<script src="~/Content/dangtinassets/js/popper.min.js"></script>
-	<script src="~/Content/dangtinassets/js/bootstrap.min.js"></script>
-	<script src="~/Content/dangtinassets/js/color-switcher.js"></script>
-	<script src="~/Content/dangtinassets/js/jquery.counterup.min.js"></script>
-	<script src="~/Content/dangtinassets/js/waypoints.min.js"></script>
-	<script src="~/Content/dangtinassets/js/wow.js"></script>
-	<script src="~/Content/dangtinassets/js/owl.carousel.min.js"></script>
-	<script src="~/Content/dangtinassets/js/jquery.slicknav.js"></script>
-	<script src="~/Content/dangtinassets/js/main.js"></script>
-	<script src="~/Content/dangtinassets/js/form-validator.min.js"></script>
-	<script src="~/Content/dangtinassets/js/contact-form-script.min.js"></script>
-	<script src="~/Content/dangtinassets/js/summernote.js"></script>
-	<script>
-		$('#summernote').summernote({
-			height: 250, // set editor height
-			minHeight: null, // set minimum height of editor
-			maxHeight: null, // set maximum height of editor
-			focus: false // set focus to editable area after initializing summernote
-		});
-	</script>
+        <!-- ========================= JS here ========================= -->
+        <script src="~/Content/assets/js/bootstrap.min.js"></script>
+        <script src="~/Content/assets/js/wow.min.js"></script>
+        <script src="~/Content/assets/js/tiny-slider.js"></script>
+        <script src="~/Content/assets/js/glightbox.min.js"></script>
+        <script src="~/Content/assets/js/main.js"></script>
+        <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+        <script src="~/Scripts/script.js"></script>
+        <script type="text/javascript">
+            //========= Category Slider
+            tns({
+                container: '.category-slider',
+                items: 3,
+                slideBy: 'page',
+                autoplay: false,
+                mouseDrag: true,
+                gutter: 0,
+                nav: false,
+                controls: true,
+                controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>'],
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    540: {
+                        items: 2,
+                    },
+                    768: {
+                        items: 4,
+                    },
+                    992: {
+                        items: 5,
+                    },
+                    1170: {
+                        items: 6,
+                    }
+                }
+            });
+        </script>
+    }
 </body>
-
 </html>
