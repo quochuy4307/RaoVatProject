@@ -1,0 +1,223 @@
+﻿@*@model IEnumerable<RaoVat.Models.RAOVAT>*@
+@using RaoVat.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<RAOVAT>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+
+    // List hình thức
+    List<SelectListItem> l1 = new List<SelectListItem>();
+    l1.Add(new SelectListItem() { Text = "Cần Bán" });
+    l1.Add(new SelectListItem() { Text = "Tìm Kiếm" });
+
+    // List tình trạng
+    List<SelectListItem> l2 = new List<SelectListItem>();
+    l2.Add(new SelectListItem() { Text = "Hàng Mới" });
+    l2.Add(new SelectListItem() { Text = "Hàng Đã Qua Sử Dụng" });
+
+    // List sắp xếp giá
+    List<SelectListItem> l3 = new List<SelectListItem>();
+    l3.Add(new SelectListItem() { Text = "Giá Tăng Dần" });
+    l3.Add(new SelectListItem() { Text = "Giá Giảm Dần" });
+
+    // List tỉnh, thành phố
+    List<SelectListItem> l4 = new List<SelectListItem>();
+    l4.Add(new SelectListItem() { Text = "Thành phố Hà Nội" });
+    l4.Add(new SelectListItem() { Text = "Thành phố Hải Phòng" });
+    l4.Add(new SelectListItem() { Text = "Thành phố Đà Nẵng" });
+    l4.Add(new SelectListItem() { Text = "Thành phố Hồ Chí Minh" });
+    l4.Add(new SelectListItem() { Text = "Thành phố Cần Thơ" });
+}
+
+
+<div id="hero-area">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center">
+                <div class="contents-ctg">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <div class="main-container section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-xs-12 page-sidebar">
+                    <aside>
+                        @using (Html.BeginForm("Search", "Categories", FormMethod.Get))
+                        {
+                            <div class="widget_search">
+                                <form role="search" id="search-form">
+                                    <input type="text"  class="form-control" autocomplete="off" name="keyword" placeholder="Search..." id="search-input" />
+                                    <button type="submit" id="search-submit" class="search-btn"><i class="lni-search"></i></button>
+                                </form>
+                            </div>
+
+                            <div class="widget categories">
+                                <h4 class="widget-title">All Categories</h4>
+
+                                @{ Html.RenderAction("CategoryPartial", "Categories");}
+
+                            </div>
+                                    }
+                        </aside>
+                </div>
+                <div class="col-lg-9 col-md-12 col-xs-12 page-content">
+
+                    <div class="product-filter">
+                        <div class="short-name">
+                            <span>Showing (1 - 12 products of 7371 products)</span>
+                        </div>
+                        <div class="Show-item">
+                            <span>Show Items</span>
+                            <form class="woocommerce-ordering" method="post">
+                                <label>
+                                    <select name="order" class="orderby">
+                                        <option selected="selected" value="menu-order">49 items</option>
+                                        <option value="popularity">popularity</option>
+                                        <option value="popularity">Average ration</option>
+                                        <option value="popularity">newness</option>
+                                        <option value="popularity">price</option>
+                                    </select>
+                                </label>
+                            </form>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#grid-view"><i class="lni-grid"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#list-view"><i class="lni-list"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="adds-wrapper">
+                        <div class="tab-content">
+                            <div id="grid-view" class="tab-pane fade">
+                                <div class="row">
+                                    @*<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                        <div class="featured-box">
+                                            <figure>
+                                                <span class="price-save">
+                                                    30% Save
+                                                </span>
+                                                <div class="icon">
+                                                    <span class="bg-green"><i class="lni-heart"></i></span>
+                                                    <span><i class="lni-bookmark"></i></span>
+                                                </div>
+                                                <a href="#"><img class="img-fluid" src="assets/img/featured/img-1.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="feature-content">
+                                                <div class="product">
+                                                    <a href="#">Electronic > </a>
+                                                    <a href="#">Apple</a>
+                                                </div>
+                                                <h4><a href="ads-details.html">Canon SX Powershot ...</a></h4>
+                                                <div class="meta-tag">
+                                                    <span>
+                                                        <a href="#"><i class="lni-user"></i> John Smith</a>
+                                                    </span>
+                                                    <span>
+                                                        <a href="#"><i class="lni-map-marker"></i> New York, US</a>
+                                                    </span>
+                                                    <span>
+                                                        <a href="#"><i class="lni-tag"></i> Apple</a>
+                                                    </span>
+                                                </div>
+                                                <p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
+                                                <div class="listing-bottom">
+                                                    <h3 class="price float-left">$249.00</h3>
+                                                    <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                   
+                                </div>
+                            </div>
+                            <div id="list-view" class="tab-pane fade active show">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        @foreach (var item in Model)
+                                        {
+                                            <div class="featured-box">
+                                                <figure>
+                                                    <span class="price-save">
+                                                        @Html.DisplayFor(itemmodel => item.HINHTHUC.HINHTHUC1)
+                                                    </span>
+                                                    <div class="icon">
+                                                        <span class="bg-green"><i class="lni-heart"></i></span>
+                                                        <span><i class="lni-bookmark"></i></span>
+                                                    </div>
+                                                    <a href="#"><img class="img-fluid" src="@Url.Content(item.HINHANH1)" alt=""></a>
+                                                </figure>
+                                                <div class="feature-content">
+                                                    <div class="product">
+                                                        <a href="#">Electronic > </a>
+                                                        <a href="#">Apple</a>
+                                                    </div>
+                                                    <h4><a href="ads-details.html">@Html.DisplayFor(itemmodel => item.TIEUDE)</a></h4>
+                                                    <div class="meta-tag">
+                                                        <span>
+                                                            <a href="#"><i class="lni-user"></i> @Html.DisplayFor(itemmodel => item.USER.TENDANGNHAP)</a>
+                                                        </span>
+                                                        <br />
+                                                        <span>
+                                                            <a href="#"><i class="lni-map-marker"></i>  @Html.DisplayFor(itemmodel => item.DIACHI)</a>
+                                                        </span>
+                                                        <br />
+
+                                                        <span>
+                                                            <a href="#"><i class="lni-tag"></i> Loại Tin: @Html.DisplayFor(itemmodel => item.CATEGORY.TENLOAI)</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <p class="dsc">Ngày giờ đăng: @Html.DisplayFor(itemodel => item.NGAYGIODANG)</p>
+                                                    <div class="listing-bottom">
+                                                        <h3 class="price float-left">Giá: @Html.DisplayFor(itemmodel => item.GIA)</h3>
+                                                        <a href="@Url.Action("Detail", "Categories", new { id = item.MATIN }, "")" class="btn btn-common float-right">View Details</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="pagination-bar">
+                        <nav>
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<br />
