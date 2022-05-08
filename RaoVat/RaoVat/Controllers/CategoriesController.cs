@@ -21,10 +21,30 @@ namespace RaoVat.Controllers
             }
             return View(db.RAOVATs.Where(x => x.MATIN == id).FirstOrDefault());
         }
-        public ActionResult Index(string category, int? page)
+        public ActionResult Index(string category, int? page, string sortBy)
         {
             int pageSize = 4;
             int pageNum = (page ?? 1);
+            ViewBag.PriceHighLow = "Price_desc";
+            ViewBag.PriceLowHigh = "Price_asc";
+            ViewBag.Newess = "New";
+            if (sortBy != null)
+            {
+                switch (sortBy)
+                {
+                    case "Price_desc":
+                        var listsort = db.RAOVATs.OrderByDescending(x => x.GIA).ToList();
+                        return View(listsort.ToPagedList(pageNum, pageSize));
+                    case "Price_asc":
+                        var listsort1 = db.RAOVATs.OrderBy(x => x.GIA).ToList();
+                        return View(listsort1.ToPagedList(pageNum, pageSize));
+                    case "New":
+                        var listsort2 = db.RAOVATs.OrderByDescending(p => p.NGAYGIODANG).ToList();
+                        return View(listsort2.ToPagedList(pageNum, pageSize));
+                    default:
+                        break;
+                }
+            }
             if (category == null)
             {
                 var list = db.RAOVATs.OrderByDescending(x => x.NGAYGIODANG).Where(s => s.MATRANGTHAI == 1);
@@ -36,13 +56,14 @@ namespace RaoVat.Controllers
                 return View(list.ToPagedList(pageNum, pageSize));
             }
         }
-        public ActionResult Search(string keyword, string TENLOAI,string TENTHANHPHO, string GIA, int? page)
+        [HttpGet]
+        public ActionResult Search(string keyword, string TENLOAI, string TENTHANHPHO, string GIA, int? page)
         {
             int pageSize = 4;
             int pageNum = (page ?? 1);
             if (GIA == "Giá Tăng Dần")
             {
-                var lista = db.RAOVATs.OrderBy(x => x.GIA).Where(x=>x.MATRANGTHAI == 1).ToList();
+                var lista = db.RAOVATs.OrderBy(x => x.GIA).Where(x => x.MATRANGTHAI == 1).ToList();
                 return View(lista.ToPagedList(pageNum, pageSize));
             }
             if (GIA == "Giá Giảm Dần")
