@@ -445,6 +445,9 @@
     <Compile Include="Models\CATEGORY.cs">
       <DependentUpon>DBRaoVatModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CHECK.cs">
+      <DependentUpon>DBRaoVatModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DBRaoVatModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

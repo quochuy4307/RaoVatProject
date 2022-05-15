@@ -17,6 +17,15 @@ warning 6002: The table/view 'DBRaoVat.dbo.ADMIN' does not have a primary key de
     <Property Name="MALOAI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENLOAI" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="CHECK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MANGUOIDUNG" Type="int" Nullable="false" />
+    <Property Name="SoLan" Type="int" />
+    <Property Name="DateLogin" Type="date" />
+  </EntityType>
   <EntityType Name="HINHTHUC">
     <Key>
       <PropertyRef Name="MAHINHTHUC" />
@@ -185,6 +194,7 @@ warning 6002: The table/view 'DBRaoVat.dbo.ADMIN' does not have a primary key de
   </Association>
   <EntityContainer Name="DBRaoVatModelStoreContainer">
     <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHECK" EntityType="Self.CHECK" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HINHTHUC" EntityType="Self.HINHTHUC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAITIN" EntityType="Self.LOAITIN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RAOVAT" EntityType="Self.RAOVAT" Schema="dbo" store:Type="Tables" />

@@ -9,6 +9,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CHECKs">
+      <EntityTypeMapping TypeName="DBRaoVatModel.CHECK">
+        <MappingFragment StoreEntitySet="CHECK">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MANGUOIDUNG" ColumnName="MANGUOIDUNG" />
+          <ScalarProperty Name="SoLan" ColumnName="SoLan" />
+          <ScalarProperty Name="DateLogin" ColumnName="DateLogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="HINHTHUCs">
       <EntityTypeMapping TypeName="DBRaoVatModel.HINHTHUC">
         <MappingFragment StoreEntitySet="HINHTHUC">
@@ -86,7 +96,6 @@
     <EntitySetMapping Name="USERs">
       <EntityTypeMapping TypeName="DBRaoVatModel.USER">
         <MappingFragment StoreEntitySet="USER">
-          <ScalarProperty Name="ResetPasswordCode" ColumnName="ResetPasswordCode" />
           <ScalarProperty Name="MANGUOIDUNG" ColumnName="MANGUOIDUNG" />
           <ScalarProperty Name="TENDANGNHAP" ColumnName="TENDANGNHAP" />
           <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
@@ -96,6 +105,7 @@
           <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
           <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
           <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="ResetPasswordCode" ColumnName="ResetPasswordCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

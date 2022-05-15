@@ -20,13 +20,13 @@ namespace RaoVat.Models
         {
             this.RAOVATs = new HashSet<RAOVAT>();
         }
-
+    
         public int MATHANHPHO { get; set; }
         [Display(Name = "Tỉnh, Thành Phố")]
         public string TENTHANHPHO { get; set; }
         public string LOAITHANHPHO { get; set; }
         public string SLUG { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RAOVAT> RAOVATs { get; set; }
         public List<TINHTHANHPHO> ListTinhThanhPho { get; set; }

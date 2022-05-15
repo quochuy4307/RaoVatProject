@@ -4,17 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1c8631bb7e7f4ec3a9bf1776a755889f" Name="Diagram1">
+      <Diagram DiagramId="3c0c50060a3b4acc8d5d83bf5fa2221e" Name="Diagram1">
         <EntityTypeShape EntityType="DBRaoVatModel.CATEGORY" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRaoVatModel.CHECK" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBRaoVatModel.HINHTHUC" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="DBRaoVatModel.LOAITIN" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBRaoVatModel.RAOVAT" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBRaoVatModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRaoVatModel.sysdiagram" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBRaoVatModel.TINHTHANHPHO" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBRaoVatModel.TINHTRANG" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DBRaoVatModel.TRANGTHAI" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBRaoVatModel.USER" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBRaoVatModel.ADMIN" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBRaoVatModel.ADMIN" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="DBRaoVatModel.FK_RAOVAT_CATEGORY" ManuallyRouted="false" />
         <AssociationConnector Association="DBRaoVatModel.FK_RAOVAT_HINHTHUC" ManuallyRouted="false" />
         <AssociationConnector Association="DBRaoVatModel.FK_RAOVAT_LOAITIN" ManuallyRouted="false" />

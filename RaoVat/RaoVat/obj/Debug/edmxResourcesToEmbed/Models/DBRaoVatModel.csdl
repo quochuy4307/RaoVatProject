@@ -8,6 +8,15 @@
     <Property Name="TENLOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="RAOVATs" Relationship="Self.FK_RAOVAT_CATEGORY" FromRole="CATEGORY" ToRole="RAOVAT" />
   </EntityType>
+  <EntityType Name="CHECK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANGUOIDUNG" Type="Int32" Nullable="false" />
+    <Property Name="SoLan" Type="Int32" />
+    <Property Name="DateLogin" Type="DateTime" Precision="0" />
+  </EntityType>
   <EntityType Name="HINHTHUC">
     <Key>
       <PropertyRef Name="MAHINHTHUC" />
@@ -100,8 +109,8 @@
     <Property Name="GIOITINH" Type="Boolean" />
     <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
     <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="RAOVATs" Relationship="Self.FK_RAOVAT_USER" FromRole="USER" ToRole="RAOVAT" />
     <Property Name="ResetPasswordCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RAOVATs" Relationship="Self.FK_RAOVAT_USER" FromRole="USER" ToRole="RAOVAT" />
   </EntityType>
   <EntityType Name="ADMIN">
     <Key>
@@ -197,6 +206,7 @@
   </Association>
   <EntityContainer Name="DBRaoVatEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
+    <EntitySet Name="CHECKs" EntityType="Self.CHECK" />
     <EntitySet Name="HINHTHUCs" EntityType="Self.HINHTHUC" />
     <EntitySet Name="LOAITINs" EntityType="Self.LOAITIN" />
     <EntitySet Name="RAOVATs" EntityType="Self.RAOVAT" />

@@ -16,5 +16,10 @@ namespace RaoVat.Controllers
         {
             return View(db.RAOVATs.Include("User").OrderByDescending(x => x.NGAYGIODANG).Where(s => s.MATRANGTHAI == 1).Take(6).ToList());
         }
+        public ActionResult TrangChu()
+        {
+            return View(db.RAOVATs.Include("User").OrderByDescending(x => x.NGAYGIODANG).Where(s => s.MATRANGTHAI == 1).Take(6).ToList());
+
+        }
     }
 }

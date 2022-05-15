@@ -34,6 +34,31 @@ namespace RaoVat.Controllers
                 db.Configuration.ValidateOnSaveEnabled = false;
                 Session["TENDANGNHAP"] = _username;
                 Session["MATKHAU"] = _pass;
+                var userTenDangNhap = Session["TENDANGNHAP"];
+                var userCurrent = db.USERs.Where(x => x.TENDANGNHAP == userTenDangNhap.ToString()).FirstOrDefault();
+                var fin = db.CHECKs.Where(x => x.MANGUOIDUNG == userCurrent.MANGUOIDUNG).FirstOrDefault();
+                if(fin == null)
+                {
+                    CHECK chck = new CHECK();
+                    chck.MANGUOIDUNG = userCurrent.MANGUOIDUNG;
+                    chck.SoLan = 0;
+                    chck.DateLogin = DateTime.Now;
+                    db.CHECKs.Add(chck);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    DateTime d1 = DateTime.Now;
+                    DateTime d2 = Convert.ToDateTime(fin.DateLogin);
+                    TimeSpan t = d1 - d2;
+                    double s = t.TotalDays;
+                    if (d2 < d1)
+                    {
+                        fin.SoLan = 0;
+                        fin.DateLogin = DateTime.Now;
+                        db.SaveChanges();
+                    }
+                }
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -167,9 +192,9 @@ namespace RaoVat.Controllers
             var verifyUrl = "/User/" + emailFor + "/" + activationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
 
-            var fromEmail = new MailAddress("quchuy0@gmail.com", "Rao Vặt");
+            var fromEmail = new MailAddress("raovat.huflit@gmail.com", "Rao Vặt");
             var toEmail = new MailAddress(emailID);
-            var fromEmailPassword = "180320Huy"; // Replace with actual password
+            var fromEmailPassword = "raovat2889"; // Replace with actual password
 
             string subject = "";
             string body = "";

@@ -27,7 +27,7 @@ namespace RaoVat.Models
         [Required(ErrorMessage = "Tên tài khoản không được trống")]
         public string TENDANGNHAP { get; set; }
         [Display(Name = "Mật Khẩu")]
-        [StringLength(50,MinimumLength = 8, ErrorMessage = "Mật khẩu có ít nhất 8 kí tự")]
+        [StringLength(50, MinimumLength = 8, ErrorMessage = "Mật khẩu có ít nhất 8 kí tự")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Mật khẩu không được trống")]
         public string MATKHAU { get; set; }

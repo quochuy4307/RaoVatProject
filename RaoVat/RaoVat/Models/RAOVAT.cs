@@ -44,7 +44,7 @@ namespace RaoVat.Models
         [Display(Name = "Ngày Hết Hạn")]
         public Nullable<System.DateTime> NGAYHETHAN { get; set; }
         public Nullable<int> MATHANHPHO { get; set; }
-
+    
         public virtual CATEGORY CATEGORY { get; set; }
         public virtual HINHTHUC HINHTHUC { get; set; }
         [Display(Name = "Loại Tin")]
@@ -57,6 +57,7 @@ namespace RaoVat.Models
         public virtual TRANGTHAI TRANGTHAI { get; set; }
         [Display(Name = "Người Dùng")]
         public virtual USER USER { get; set; }
+
 
         [NotMapped]
         public HttpPostedFileBase UploadImage { get; set; }

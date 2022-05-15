@@ -15,7 +15,6 @@ namespace RaoVat.Models
 
     public partial class ADMIN
     {
-
         public int MAQUANTRI { get; set; }
         [Display(Name = "Tên Đăng Nhập")]
         [Required(ErrorMessage = "Tên tài khoản không được trống")]
