@@ -1,0 +1,493 @@
+﻿@model IEnumerable<RaoVat.Models.RAOVAT>
+
+@{
+    ViewBag.Title = "TrangChu";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+
+}
+<body>
+    <div id="hero-area">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-9 col-xs-12 text-center">
+                    <div class="contents">
+                        <h1 class="head-title">Welcome to The Largest <span class="year">Marketplace</span></h1>
+                        <p>Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more</p>
+                        <div class="search-bar">
+                            <div class="search-inner">
+                                @using (Html.BeginForm("Search", "Categories", FormMethod.Get))
+                                {
+                                    <form class="search-form">
+                                        <div class="form-group">
+                                            <input type="text" name="customword" class="form-control" placeholder="What are you looking for?">
+                                        </div>
+                                        <div class="form-group inputwithicon">
+                                            <div class="select">
+                                                <select>
+                                                    <option value="none">Locations</option>
+                                                    <option value="none">New York</option>
+                                                    <option value="none">California</option>
+                                                    <option value="none">Washington</option>
+                                                    <option value="none">Birmingham</option>
+                                                    <option value="none">Chicago</option>
+                                                    <option value="none">Phoenix</option>
+                                                </select>
+                                            </div>
+                                            <i class="lni-target"></i>
+                                        </div>
+                                        <div class="form-group inputwithicon">
+                                            <div class="select">
+                                                <select>
+                                                    <option value="none">Select Catagory</option>
+                                                    <option value="none">Jobs</option>
+                                                    <option value="none">Electronics</option>
+                                                    <option value="none">Mobile</option>
+                                                    <option value="none">Training</option>
+                                                    <option value="none">Pets</option>
+                                                    <option value="none">Real Estate</option>
+                                                    <option value="none">Services</option>
+                                                    <option value="none">Training</option>
+                                                    <option value="none">Vehicles</option>
+                                                </select>
+                                            </div>
+                                            <i class="lni-menu"></i>
+                                        </div>
+                                        <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
+                                    </form>
+                                }
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="categories-icon bg-light section-padding">
+        <div class="container">
+            <h1 class="section-title">Ads By Category</h1>
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-car"></i>
+                            </div>
+                            <h4>Vehicle</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-display"></i>
+                            </div>
+                            <h4>Electronics</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-mobile"></i>
+                            </div>
+                            <h4>Mobiles</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-leaf"></i>
+                            </div>
+                            <h4>Furnitures</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-tshirt"></i>
+                            </div>
+                            <h4>Fashion</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-briefcase"></i>
+                            </div>
+                            <h4>Jobs</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-home"></i>
+                            </div>
+                            <h4>Real Estate</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-hand"></i>
+                            </div>
+                            <h4>Animals</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-graduation"></i>
+                            </div>
+                            <h4>Education</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-laptop"></i>
+                            </div>
+                            <h4>Laptops &amp; PCs</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-paint-roller"></i>
+                            </div>
+                            <h4>Services</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="/Categories/Index/">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-heart"></i>
+                            </div>
+                            <h4>Matrimony</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    @*List sản phẩm đăng gần nhất*@
+    <section class="featured section-padding">
+        <div class="container">
+            <h1 class="section-title">Latest Products</h1>
+   
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+                        <div class="featured-box">
+                            <figure>
+                                <span class="price-save">
+                                    @Html.DisplayFor(itemmodel => item.HINHTHUC.HINHTHUC1)
+                                </span>
+                                <div class="icon">
+                                    <span class="bg-green"><i class="lni-heart"></i></span>
+                                    <span><i class="lni-bookmark"></i></span>
+                                </div>
+                                <a href="#"><img class="img-fluid" src="@Url.Content(item.HINHANH1)" alt="" ></a>
+                            </figure>
+                            <div class="feature-content">
+                                <div class="product">
+                                    <a href="#">Electronic > </a>
+                                    <a href="#">Computers</a>
+                                </div>
+                                <h4><a href="ads-details.html">@Html.DisplayFor(itemmodel => item.TIEUDE)</a></h4>
+                                <div class="meta-tag">
+                                    <span>
+                                        <a href="#"><i class="lni-user"></i> @Html.DisplayFor(itemmodel => item.USER.TENDANGNHAP)</a>
+                                    </span>
+                                    <br />
+                                    <span>
+                                        <a href="#"><i class="lni-map-marker"></i>  @Html.DisplayFor(itemmodel => item.DIACHI)</a>
+                                    </span>
+
+                                    <span>
+                                        <a href="#"><i class="lni-tag"></i> Loại Tin: @Html.DisplayFor(itemmodel => item.CATEGORY.TENLOAI)</a>
+                                    </span>
+                                </div>
+                                <p class="dsc"></p>
+                                <div class="listing-bottom">
+                                    <h3 class="price float-left">@Html.DisplayFor(itemmodel => item.GIA)</h3>
+                                    <a href="@Url.Action("Detail", "Categories", new { id = item.MATIN }, "")" class="btn btn-common float-right">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                }
+                </div>
+
+            
+            </div>
+    </section>
+
+
+    
+
+
+    <section class="works section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="section-title">Đăng tin như thế nào?</h3>
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="works-item">
+                        <div class="icon-box">
+                            <i class="lni-users"></i>
+                        </div>
+                        <p>Tạo tài khoản</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="works-item">
+                        <div class="icon-box">
+                            <i class="lni-bookmark-alt"></i>
+                        </div>
+                        <p>Đăng một tin tức</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="works-item">
+                        <div class="icon-box">
+                            <i class="lni-thumbs-up"></i>
+                        </div>
+                        <p>Admin duyệt tin ngay</p>
+                    </div>
+                </div>
+                <hr class="works-line">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="services bg-light section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="section-title">Key Features</h3>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xs-12">
+                    <div class="services-item wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="icon">
+                            <i class="lni-leaf"></i>
+                        </div>
+                        <div class="services-content">
+                            <h3><a href="#">Elegant Design</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xs-12">
+                    <div class="services-item wow fadeInRight" data-wow-delay="0.4s">
+                        <div class="icon">
+                            <i class="lni-display"></i>
+                        </div>
+                        <div class="services-content">
+                            <h3><a href="#">Responsive Design</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xs-12">
+                    <div class="services-item wow fadeInRight" data-wow-delay="0.6s">
+                        <div class="icon">
+                            <i class="lni-color-pallet"></i>
+                        </div>
+                        <div class="services-content">
+                            <h3><a href="#">Clean UI</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xs-12">
+                    <div class="services-item wow fadeInRight" data-wow-delay="0.8s">
+                        <div class="icon">
+                            <i class="lni-emoji-smile"></i>
+                        </div>
+                        <div class="services-content">
+                            <h3><a href="#">UX Friendly</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xs-12">
+                    <div class="services-item wow fadeInRight" data-wow-delay="1s">
+                        <div class="icon">
+                            <i class="lni-pencil-alt"></i>
+                        </div>
+                        <div class="services-content">
+                            <h3><a href="#">Easily Customizable</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-xs-12">
+                    <div class="services-item wow fadeInRight" data-wow-delay="1.2s">
+                        <div class="icon">
+                            <i class="lni-headphone-alt"></i>
+                        </div>
+                        <div class="services-content">
+                            <h3><a href="#">Security Support</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+
+
+
+    <section id="blog" class="section-padding">
+
+        <div class="container">
+            <h2 class="section-title">
+                Blog Post
+            </h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
+
+                    <div class="blog-item-wrapper">
+                        <div class="blog-item-img">
+                            <a href="single-post.html">
+                                <img src="~/Content/raovatassets/img/blog/img-1.jpg" />
+                            </a>
+                        </div>
+                        <div class="blog-item-text">
+                            <div class="meta-tags">
+                                <span class="user float-left"><a href="#"><i class="lni-user"></i> Posted By Admin</a></span>
+                                <span class="date float-right"><i class="lni-calendar"></i> 24 May, 2022</span>
+                            </div>
+                            <h3>
+                                <a href="single-post.html">Recently Launching Our Iphone X</a>
+                            </h3>
+                            <p>
+                                Reprehenderit nemo quod tempore doloribus ratione distinctio quis quidem vitae sunt reiciendis, molestias omnis soluta.
+                            </p>
+                            <a href="single-post.html" class="btn btn-common">Read More</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
+
+                    <div class="blog-item-wrapper">
+                        <div class="blog-item-img">
+                            <a href="single-post.html">
+                                <img src="~/Content/raovatassets/img/blog/img-2.jpg" />
+                            </a>
+                        </div>
+                        <div class="blog-item-text">
+                            <div class="meta-tags">
+                                <span class="user float-left"><a href="#"><i class="lni-user"></i> Posted By Admin</a></span>
+                                <span class="date float-right"><i class="lni-calendar"></i> 24 May, 2022</span>
+                            </div>
+                            <h3>
+                                <a href="single-post.html">How to get more ad views</a>
+                            </h3>
+                            <p>
+                                Reprehenderit nemo quod tempore doloribus ratione distinctio quis quidem vitae sunt reiciendis, molestias omnis soluta.
+                            </p>
+                            <a href="single-post.html" class="btn btn-common">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
+
+                    <div class="blog-item-wrapper">
+                        <div class="blog-item-img">
+                            <a href="single-post.html">
+                                <img src="~/Content/raovatassets/img/blog/img-3.jpg" />                            </a>
+                        </div>
+                        <div class="blog-item-text">
+                            <div class="meta-tags">
+                                <span class="user float-left"><a href="#"><i class="lni-user"></i> Posted By Admin</a></span>
+                                <span class="date float-right"><i class="lni-calendar"></i> 24 May, 2022</span>
+                            </div>
+                            <h3>
+                                <a href="single-post.html">Writing a better product description</a>
+                            </h3>
+                            <p>
+                                Reprehenderit nemo quod tempore doloribus ratione distinctio quis quidem vitae sunt reiciendis, molestias omnis soluta.
+                            </p>
+                            <a href="single-post.html" class="btn btn-common">Read More</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="subscribes section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="subscribes-inner">
+                        <div class="icon">
+                            <i class="lni-pointer"></i>
+                        </div>
+                        <div class="sub-text">
+                            <h3>Subscribe to Newsletter</h3>
+                            <p>and receive new ads in inbox</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <form>
+                        <div class="subscribe">
+                            <input class="form-control" name="EMAIL" placeholder="Enter your Email" required="" type="email">
+                            <button class="btn btn-common" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="#" class="back-to-top">
+        <i class="lni-chevron-up"></i>
+    </a>
+
+
+</body>
+
+

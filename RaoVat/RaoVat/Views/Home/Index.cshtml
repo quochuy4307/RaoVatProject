@@ -1,0 +1,455 @@
+﻿@model IEnumerable<RaoVat.Models.RAOVAT>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    // List danh mục
+    List<SelectListItem> l1 = new List<SelectListItem>();
+    l1.Add(new SelectListItem() { Text = "Xe" });
+    l1.Add(new SelectListItem() { Text = "Đồ điện tử" });
+    l1.Add(new SelectListItem() { Text = "Hôn nhân" });
+    l1.Add(new SelectListItem() { Text = "Nội thất" });
+    l1.Add(new SelectListItem() { Text = "Công việc" });
+    l1.Add(new SelectListItem() { Text = "Địa ốc" });
+    l1.Add(new SelectListItem() { Text = "Sức khỏe và làm đẹp" });
+    l1.Add(new SelectListItem() { Text = "Thời trang" });
+    l1.Add(new SelectListItem() { Text = "Giáo dục" });
+    l1.Add(new SelectListItem() { Text = "Dụng cụ" });
+    l1.Add(new SelectListItem() { Text = "Du lịch" });
+
+    // List tỉnh, thành phố
+    List<SelectListItem> l2 = new List<SelectListItem>();
+    l2.Add(new SelectListItem() { Text = "Thành phố Hà Nội" });
+    l2.Add(new SelectListItem() { Text = "Thành phố Hải Phòng" });
+    l2.Add(new SelectListItem() { Text = "Thành phố Đà Nẵng" });
+    l2.Add(new SelectListItem() { Text = "Thành phố Hồ Chí Minh" });
+    l2.Add(new SelectListItem() { Text = "Thành phố Cần Thơ" });
+}
+
+
+<!-- Start Hero Area -->
+<section class="hero-area overlay">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
+                <div class="hero-text text-center">
+                    <!-- Start Hero Text -->
+                    <div class="section-heading">
+                        <h2 class="wow fadeInUp" data-wow-delay=".3s">Chào mừng đến với RaoVat</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".5s">
+                            Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và <br> máy tính,
+                            Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                        </p>
+                    </div>
+                    <!-- End Search Form -->
+                    <!-- Start Search Form -->
+                    @using (Html.BeginForm("Search", "Categories", FormMethod.Get))
+                    {
+                        <div class="search-form wow fadeInUp" data-wow-delay=".7s">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-12 p-0">
+                                    <div class="search-input">
+                                        <label for="keyword"><i class="lni lni-search-alt theme-color"></i></label>
+                                        <input type="text" name="keyword" id="keyword" placeholder="Nhập sản phầm cần tìm...">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-12 p-0">
+                                    <div class="search-input">
+                                        <label for="category"><i class="lni lni-grid-alt theme-color"></i></label>               
+                                        @Html.DropDownList("TENLOAI", l1, "Mục rao vặt", new { @style = "width:auto", @class = "form-control" })
+                                     
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-12 p-0">
+                                    <div class="search-input">
+                                        <label for="location"><i class="lni lni-map-marker theme-color"></i></label>
+                                        @Html.DropDownList("TENTHANHPHO", l2, "Địa điểm", new { @style = "width:auto", @class = "form-control" })
+                                      
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-12 p-0">
+                                    <div class="search-btn button">
+                                        <button class="btn"><i class="lni lni-search-alt"></i>Tìm kiếm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <!-- End Search Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End Hero Area -->
+<!-- Start Categories Area -->
+<section class="categories">
+    <div class="container">
+        <div class="cat-inner">
+            <div class="row">
+                <div class="col-12 p-0">
+                    <div class="category-slider">
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Xe" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/car.svg" alt="#">
+                            </div>
+                            <h3>Xe</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 1)</h5>
+                        </a>
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Đồ điện tử" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/laptop.svg" alt="#">
+                            </div>
+                            <h3>Đồ điện tử</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 2)</h5>
+                        </a>
+                        <!-- End Single Category -->
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Hôn nhân" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/matrimony.svg" alt="#">
+                            </div>
+                            <h3>Hôn nhân</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 3)</h5>
+                        </a>
+                        <!-- End Single Category -->
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Nội thất" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/furniture.svg" alt="#">
+                            </div>
+                            <h3>Nội thất</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 4)</h5>
+                        </a>
+                        <!-- End Single Category -->
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Công việc" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/jobs.svg" alt="#">
+                            </div>
+                            <h3>Công việc</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 5)</h5>
+                        </a>
+                        <!-- End Single Category -->
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Địa ốc" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/real-estate.svg" alt="#">
+                            </div>
+                            <h3>Địa ốc</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 6)</h5>
+                        </a>
+                        <!-- End Single Category -->
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Sức khỏe và làm đẹp" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/hospital.svg" alt="#">
+                            </div>
+                            <h3>Sức khỏe và làm đẹp</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 7)</h5>
+                        </a>
+                        <!-- End Single Category -->
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Thời trang" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/tshirt.svg" alt="#">
+                            </div>
+                            <h3>Thời trang</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 8)</h5>
+                        </a>
+                        <!-- End Single Category -->
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Giáo dục" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/education.svg" alt="#">
+                            </div>
+                            <h3>Giáo dục</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 9)</h5>
+                        </a>
+                        <!-- End Single Category -->
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Dụng cụ" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/controller.svg" alt="#">
+                            </div>
+                            <h3>Dụng cụ</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 10)</h5>
+                        </a>
+                        <!-- End Single Category -->
+                        <!-- Start Single Category -->
+                        <a href="@Url.Action("Index","Categories",new { category = "Du lịch" }, "")" class="single-cat">
+                            <div class="icon">
+                                <img src="~/Content/assets/images/categories/travel.svg" alt="#">
+                            </div>
+                            <h3>Du lịch</h3>
+                            <h5 class="total">@Model.Count(x => x.MALOAI == 11)</h5>
+                        </a>
+                        <!-- End Single Category -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /End Categories Area -->
+<!-- Start Items Grid Area -->
+<section class="items-grid section custom-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">Các tin mới nhất</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">
+                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
+                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="single-head">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single Grid -->
+                            <div class="single-grid wow fadeInUp" data-wow-delay=".2s">
+                                <div class="image">
+                                    <a href="@Url.Action("Detail","Categories",new { id = item.MATIN },"")" class="thumbnail"><img src="@Url.Content(item.HINHANH1)" height="250" width="200" alt="#"></a>
+                                    <div class="author">
+                                        <div class="author-image">
+                                            <a href="javascript:void(0)">
+                                                <img src="~/Content/assets/images/categories/user-regular.svg" alt="#">
+                                                <span>@Html.DisplayFor(itemmodel => item.USER.TENDANGNHAP)</span>
+                                            </a>
+                                        </div>
+                                        <p class="sale">@Html.DisplayFor(itemmodel => item.HINHTHUC.HINHTHUC1)</p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="top-content">
+                                        <a href="javascript:void(0)" class="tag">Loại Tin: @Html.DisplayFor(itemmodel => item.CATEGORY.TENLOAI)</a>
+                                        <h3 class="title">
+                                            <a href="@Url.Action("Detail","Categories",new { id = item.MATIN },"")">@Html.DisplayFor(itemmodel => item.TIEUDE)</a>
+                                        </h3>
+                                        <p class="update-time">Ngày giờ đăng: @Html.DisplayFor(itemodel => item.NGAYGIODANG)</p>
+                                        @*<ul class="rating">
+                                                <li><i class="lni lni-star-filled"></i></li>
+                                                <li><i class="lni lni-star-filled"></i></li>
+                                                <li><i class="lni lni-star-filled"></i></li>
+                                                <li><i class="lni lni-star-filled"></i></li>
+                                                <li><i class="lni lni-star-filled"></i></li>
+                                                <li><a href="javascript:void(0)">(35)</a></li>
+                                            </ul>*@
+                                        <ul class="info-list">
+                                            <li style="width: 100%;">
+                                                <a href="javascript:void(0)"><i class="lni lni-map-marker"></i> @Html.DisplayFor(itemmodel => item.DIACHI)</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="bottom-content">
+                                        <p class="price">Giá <span>@Html.DisplayFor(itemmodel => item.GIA)</span></p>
+                                        @*<a href="javascript:void(0)" class="like"><i class="lni lni-heart"></i></a>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Grid -->
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /End Items Grid Area -->
+<!-- Start Why Choose Area -->
+<section class="why-choose section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">Tại sao chọn chúng tôi</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">
+                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
+                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="choose-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single List -->
+                            <div class="single-list wow fadeInUp" data-wow-delay=".2s">
+                                <i class="lni lni-book"></i>
+                                <h4>Đầy đủ tài liệu</h4>
+                                <p>
+                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
+                                    cho tài sản.
+                                </p>
+                            </div>
+                            <!-- Start Single List -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single List -->
+                            <div class="single-list wow fadeInUp" data-wow-delay=".4s">
+                                <i class="lni lni-leaf"></i>
+                                <h4>
+                                    Thiết kế sạch sẽ và hiện đại
+                                </h4>
+                                <p>
+                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
+                                    cho tài sản.
+                                </p>
+                            </div>
+                            <!-- Start Single List -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single List -->
+                            <div class="single-list wow fadeInUp" data-wow-delay=".6s">
+                                <i class="lni lni-cog"></i>
+                                <h4>Hoàn toàn có thể tùy chỉnh</h4>
+                                <p>
+                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
+                                    cho tài sản.
+                                </p>
+                            </div>
+                            <!-- Start Single List -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single List -->
+                            <div class="single-list wow fadeInUp" data-wow-delay=".2s">
+                                <i class="lni lni-pointer-up"></i>
+                                <h4>Thân thiện với người dùng</h4>
+                                <p>
+                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
+                                    cho tài sản.
+                                </p>
+                            </div>
+                            <!-- Start Single List -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single List -->
+                            <div class="single-list wow fadeInUp" data-wow-delay=".4s">
+                                <i class="lni lni-layout"></i>
+                                <h4>Giao diện tuyệt vời</h4>
+                                <p>
+                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
+                                    cho tài sản.
+                                </p>
+                            </div>
+                            <!-- Start Single List -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single List -->
+                            <div class="single-list wow fadeInUp" data-wow-delay=".6s">
+                                <i class="lni lni-laptop-phone"></i>
+                                <h4>
+                                    Đáp ứng đầy đủ
+                                </h4>
+                                <p>
+                                    Mua và bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và máy tính hoặc tìm kiếm
+                                    cho tài sản.
+                                </p>
+                            </div>
+                            <!-- Start Single List -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /End Why Choose Area -->
+<!-- Start How Works Area -->
+<section class="how-works section" style="background-color: #fff;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">Hướng dẫn</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">
+                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
+                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">
+                <!-- Start Single Work -->
+                <div class="single-work wow fadeInUp" data-wow-delay=".2s">
+                    <span class="serial">01</span>
+                    <h3>Tạo tài khoản</h3>
+                    <p>
+                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
+                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                    </p>
+                </div>
+                <!-- End Single Work -->
+            </div>
+            <div class="col-lg-4 col-md-4 col-12">
+                <!-- Start Single Work -->
+                <div class="single-work wow fadeInUp" data-wow-delay=".4s">
+                    <span class="serial">02</span>
+                    <h3>Đăng quảng cáo của bạn</h3>
+                    <p>
+                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
+                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                    </p>
+                </div>
+                <!-- End Single Work -->
+            </div>
+            <div class="col-lg-4 col-md-4 col-12">
+                <!-- Start Single Work -->
+                <div class="single-work wow fadeInUp" data-wow-delay=".6s">
+                    <span class="serial">03</span>
+                    <h3>
+                        Bán mặt hàng của bạn
+                    </h3>
+                    <p>
+                        Mua và Bán mọi thứ từ ô tô đã qua sử dụng đến điện thoại di động và
+                        máy tính, Hoặc Tìm kiếm Tài sản, Việc làm và hơn thế nữa.
+                    </p>
+                </div>
+                <!-- End Single Work -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End How Works Area -->
+<!-- Start Newsletter Area -->
+<div class="newsletter section">
+    <div class="container">
+        <div class="inner-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="title">
+                        <i class="lni lni-alarm"></i>
+                        <h2>
+                            Bản tin
+                        </h2>
+                        <p>
+                            Chúng tôi không gửi thư rác nên đừng lo lắng.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="form">
+                        <form action="#" method="get" target="_blank" class="newsletter-form">
+                            <input name="EMAIL" placeholder="Địa chỉ email của bạn" type="email">
+                            <div class="button">
+                                <button class="btn">đăng ký<span class="dir-part"></span></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Newsletter Area -->

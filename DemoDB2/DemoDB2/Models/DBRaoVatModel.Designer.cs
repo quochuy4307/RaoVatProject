@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\RAOVAT\DemoDB2\DemoDB2\Models\DBRaoVatModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Code\Đồ án\CNPMNC\Đồ Án\RaoVatProject\DemoDB2\DemoDB2\Models\DBRaoVatModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
