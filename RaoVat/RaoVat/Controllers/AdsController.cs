@@ -31,7 +31,7 @@ namespace RaoVat.Controllers
             else
             {
                 var tendangnhap = Session["TENDANGNHAP"];
-                var listTin = db.RAOVATs.Where(s => s.USER.TENDANGNHAP == tendangnhap).ToList();
+                var listTin = db.RAOVATs.OrderByDescending(x => x.NGAYGIODANG).Where(s => s.USER.TENDANGNHAP == tendangnhap).ToList();
                 return View(listTin.ToPagedList(pageNum, pageSize));
             }
         }
@@ -86,28 +86,42 @@ namespace RaoVat.Controllers
         {
             try
             {
-                if(raovat.UploadImage !=null){
-                    string filename = Path.GetFileNameWithoutExtension(raovat.UploadImage.FileName);
-                    string extent = Path.GetExtension(raovat.UploadImage.FileName);
-                    filename = filename + extent;
-                    raovat.HINHANH1 = "~/Content/img/" + filename;
-                    raovat.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/img/"), filename));
-                }
-                raovat.NGAYGIODANG = DateTime.Now;
-                raovat.NGAYHETHAN = DateTime.Now.AddDays(30);
-                raovat.MALOAITIN = 1;
-                raovat.MATRANGTHAI = 2;
                 var userTenDangNhap = Session["TENDANGNHAP"];
                 var userCurrent = db.USERs.Where(x => x.TENDANGNHAP == userTenDangNhap.ToString()).FirstOrDefault();
-                raovat.MANGUOIDUNG = Convert.ToInt32(userCurrent.MANGUOIDUNG);
-                db.RAOVATs.Add(raovat);
-                db.SaveChanges();
-                return RedirectToAction("Index", "Categories");
+                var chec = db.CHECKs.Where(x => x.MANGUOIDUNG == userCurrent.MANGUOIDUNG).FirstOrDefault();
+                if (chec.SoLan < 3 || chec.SoLan >= 100)
+                {
+                    if (raovat.UploadImage != null)
+                    {
+                        string filename = Path.GetFileNameWithoutExtension(raovat.UploadImage.FileName);
+                        string extent = Path.GetExtension(raovat.UploadImage.FileName);
+                        filename = filename + extent;
+                        raovat.HINHANH1 = "~/Content/img/" + filename;
+                        raovat.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/img/"), filename));
+                    }
+                    raovat.NGAYGIODANG = DateTime.Now;
+                    raovat.NGAYHETHAN = DateTime.Now.AddDays(30);
+                    raovat.MALOAITIN = 1;
+                    raovat.MATRANGTHAI = 2;
+                    raovat.MANGUOIDUNG = Convert.ToInt32(userCurrent.MANGUOIDUNG);
+                    chec.SoLan = chec.SoLan + 1;
+                    db.RAOVATs.Add(raovat);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Categories");
+                }
+                else
+                {
+                    return RedirectToAction("gioihan", "Ads");
+                }
             }
             catch
             {
                 return View();
             }
+        }
+        public ActionResult gioihan()
+        {
+            return View();
         }
         public ActionResult Delete(int id)
         {

@@ -26,6 +26,7 @@ namespace RaoVat.Models
         }
     
         public virtual DbSet<CATEGORY> CATEGORies { get; set; }
+        public virtual DbSet<CHECK> CHECKs { get; set; }
         public virtual DbSet<HINHTHUC> HINHTHUCs { get; set; }
         public virtual DbSet<LOAITIN> LOAITINs { get; set; }
         public virtual DbSet<RAOVAT> RAOVATs { get; set; }

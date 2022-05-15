@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\HUFLIT HK 2 NAM 3\Lap Trinh Tren Web NC\Do An\User\RaoVat\RaoVat\RaoVat\Models\DBRaoVatModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\web\SourceCode\LuongDinhThong_TranHaTuanKiet_TranMinhChi_XayDungWebRaoVat\User\RaoVat\RaoVat\RaoVat\Models\DBRaoVatModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
