@@ -8,28 +8,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
 
-    // List hình thức
-    List<SelectListItem> l1 = new List<SelectListItem>();
-    l1.Add(new SelectListItem() { Text = "Cần Bán" });
-    l1.Add(new SelectListItem() { Text = "Tìm Kiếm" });
-
-    // List tình trạng
-    List<SelectListItem> l2 = new List<SelectListItem>();
-    l2.Add(new SelectListItem() { Text = "Hàng Mới" });
-    l2.Add(new SelectListItem() { Text = "Hàng Đã Qua Sử Dụng" });
-
-    // List sắp xếp giá
-    List<SelectListItem> l3 = new List<SelectListItem>();
-    l3.Add(new SelectListItem() { Text = "Giá Tăng Dần" });
-    l3.Add(new SelectListItem() { Text = "Giá Giảm Dần" });
-
-    // List tỉnh, thành phố
-    List<SelectListItem> l4 = new List<SelectListItem>();
-    l4.Add(new SelectListItem() { Text = "Thành phố Hà Nội" });
-    l4.Add(new SelectListItem() { Text = "Thành phố Hải Phòng" });
-    l4.Add(new SelectListItem() { Text = "Thành phố Đà Nẵng" });
-    l4.Add(new SelectListItem() { Text = "Thành phố Hồ Chí Minh" });
-    l4.Add(new SelectListItem() { Text = "Thành phố Cần Thơ" });
 }
 
 
@@ -111,44 +89,7 @@
                     <div class="tab-content">
                         <div id="grid-view" class="tab-pane fade">
                             <div class="row">
-                                @*<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                        <div class="featured-box">
-                                            <figure>
-                                                <span class="price-save">
-                                                    30% Save
-                                                </span>
-                                                <div class="icon">
-                                                    <span class="bg-green"><i class="lni-heart"></i></span>
-                                                    <span><i class="lni-bookmark"></i></span>
-                                                </div>
-                                                <a href="#"><img class="img-fluid" src="assets/img/featured/img-1.jpg" alt=""></a>
-                                            </figure>
-                                            <div class="feature-content">
-                                                <div class="product">
-                                                    <a href="#">Electronic > </a>
-                                                    <a href="#">Apple</a>
-                                                </div>
-                                                <h4><a href="ads-details.html">Canon SX Powershot ...</a></h4>
-                                                <div class="meta-tag">
-                                                    <span>
-                                                        <a href="#"><i class="lni-user"></i> John Smith</a>
-                                                    </span>
-                                                    <span>
-                                                        <a href="#"><i class="lni-map-marker"></i> New York, US</a>
-                                                    </span>
-                                                    <span>
-                                                        <a href="#"><i class="lni-tag"></i> Apple</a>
-                                                    </span>
-                                                </div>
-                                                <p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
-                                                <div class="listing-bottom">
-                                                    <h3 class="price float-left">$249.00</h3>
-                                                    <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>*@
-
+                              
                             </div>
                         </div>
                         <div id="list-view" class="tab-pane fade active show">
@@ -165,12 +106,12 @@
                                                     <span class="bg-green"><i class="lni-heart"></i></span>
                                                     <span><i class="lni-bookmark"></i></span>
                                                 </div>
-                                                <a href="#"><img class="img-fluid" src="@Url.Content(item.HINHANH1)" alt=""></a>
+                                                <a href="@Url.Action("Detail", "Categories", new { id = item.MATIN }, "")"><img class="img-fluid"src="@Url.Content(item.HINHANH1)" alt=""></a>
                                             </figure>
                                             <div class="feature-content">
                                                 <div class="product">
-                                                    <a href="#">Electronic > </a>
-                                                    <a href="#">Apple</a>
+                                                    <a href="/Categories/Index/">Categories > </a>
+                                                    <a href="">@Html.DisplayFor(itemmodel =>item.CATEGORY.TENLOAI)</a>
                                                 </div>
                                                 <h4><a href="ads-details.html">@Html.DisplayFor(itemmodel => item.TIEUDE)</a></h4>
                                                 <div class="meta-tag">
@@ -207,14 +148,14 @@
                 <div class="pagination-bar">
                     <nav>
                         <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link " href="/Categories/Index?page=1">1</a></li>
+                            <li class="page-item"><a class="page-link" href="/Categories/Index?page=2">2</a></li>
+                            <li class="page-item"><a class="page-link" href="/Categories/Index?page=3">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">Next</a></li>
                         </ul>
-                        Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/ @Model.PageCount
+                        @*Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/ @Model.PageCount
                         <div class="MenuPage">
-                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))*@
                     </nav>
                 </div>
 

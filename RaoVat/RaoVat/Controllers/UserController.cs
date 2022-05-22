@@ -78,7 +78,7 @@ namespace RaoVat.Controllers
         public ActionResult LogOutUser()
         {
             Session.Abandon();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("TrangChu", "Home");
         }
         [HttpGet]
         public ActionResult VerifyAccount(string id)
