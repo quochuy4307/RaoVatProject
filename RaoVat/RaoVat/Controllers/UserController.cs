@@ -59,7 +59,7 @@ namespace RaoVat.Controllers
                         db.SaveChanges();
                     }
                 }
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("TrangChu", "Home");
             }
         }
         public ActionResult RegisterUser()
@@ -89,7 +89,7 @@ namespace RaoVat.Controllers
                     db.Configuration.ValidateOnSaveEnabled = false;
                     db.USERs.Add(_user);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("TrangChu");
                 }
                 else
                 {
@@ -103,7 +103,7 @@ namespace RaoVat.Controllers
         public ActionResult LogOutUser()
         {
             Session.Abandon();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("TrangChu", "Home");
         }
         [HttpGet]
         public ActionResult VerifyAccount(string id)

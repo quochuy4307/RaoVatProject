@@ -247,7 +247,7 @@
     }
     else
     {
-        <!-- Preloader -->
+       <!-- Preloader -->
         <div class="preloader">
             <div class="preloader-inner">
                 <div class="preloader-icon">
@@ -312,30 +312,13 @@
                                         </li>
                                     </ul>
                                 </div> <!-- navbar collapse -->
-                                <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                                    <ul id="nav" class="navbar-nav ms-auto">
-                                        <li class="nav-item">
-                                            <a class=" dd-menu collapsed" href="javascript:void(0)"
-                                               data-bs-toggle="collapse" data-bs-target="#submenu-1-5"
-                                               aria-controls="navbarSupportedContent" aria-expanded="false"
-                                               aria-label="Toggle navigation"><img src="~/Content/assets/images/categories/user-regular.svg" width="30" height="30" />  @Session["TENDANGNHAP"]</a>
-                                            <ul class="sub-menu collapse" id="submenu-1-5">
-                                                <li class="nav-item">
-                                                    <a href="/Ads/QuanLyTin">Quản lý rao vặt</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    @{
-                                                        if (Session["TENDANGNHAP"] != null)
-                                                        {
-                                                            var a = Session["TENDANGNHAP"];
-                                                            <a href="@Url.Action("DetailInfo","Ads",new { id = a.ToString()})">Thông tin cá nhân</a>
-                                                        }
-                                                    }
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="@Url.Action("LogOutUser","User")">Đăng Xuất</a>
-                                                </li>
-                                            </ul>
+                                <div class="login-button">
+                                    <ul>
+                                        <li>
+                                            <a href="/User/Index"><i class="lni lni-enter"></i> Đăng Nhập</a>
+                                        </li>
+                                        <li>
+                                            <a href="/User/RegisterUser"><i class="lni lni-user"></i> Đăng Ký</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -366,7 +349,7 @@
                                 <h3></h3>
                                 <div>
                                     <a class="navbar-brand" href="/Home/Index">
-                                        <img src="~/Content/assets/images/logo/logo1.png" alt="Logo">
+                                        <src="~/Content/assets/images/logo/logo1.png" alt="Logo">
                                     </a>
                                 </div>
                             </div>
@@ -455,8 +438,6 @@
         <script src="~/Content/assets/js/tiny-slider.js"></script>
         <script src="~/Content/assets/js/glightbox.min.js"></script>
         <script src="~/Content/assets/js/main.js"></script>
-        <script src="~/Scripts/jquery-3.6.0.min.js"></script>
-        <script src="~/Scripts/script.js"></script>
         <script type="text/javascript">
             //========= Category Slider
             tns({

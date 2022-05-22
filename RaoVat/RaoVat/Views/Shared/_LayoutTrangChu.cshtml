@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>NexusPlus - Classified Ads and Listing Template</title>
+    <title>RaoVat</title>
     <link href="~/Content/raovatassets/css/summernote.css" rel="stylesheet" />
     <link href="~/Content/raovatassets/css/animate.css" rel="stylesheet" />
     <link href="~/Content/raovatassets/css/slicknav.css" rel="stylesheet" />
@@ -78,18 +78,42 @@
                             <a class="dropdown-item" href="@Url.Action("Index","Categories",new { category = "Giáo dục" }, "")">Giáo dục</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="/USER/Index/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Đăng nhập
-                        </a>
-                       
-                    </li>
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="/USER/RegisterUser/">
-                            Đăng ký
-                        </a>
-                    </li>
+                    @{
+                        if (Session["TENDANGNHAP"] == null)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="/USER/Index/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Đăng nhập
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/USER/RegisterUser/">
+                                    Đăng ký
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item dropdown">
+
+                                @{
+                                    var a = Session["TENDANGNHAP"];
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Session["TENDANGNHAP"]
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="@Url.Action("DetailInfo","Ads",new { id = a.ToString()})">Thông tin cá nhân</a>
+                                        <a class="dropdown-item" href="/Ads/QuanLyTin">Quản lý rao vặt</a>
+                                        <a class="dropdown-item" href="@Url.Action("LogOutUser","User")">Đăng Xuất</a>
+                                    </div>
+                                </li>
+                                }
+                                </li>
+                            }
+                    }
                 </ul>
                 <div class="post-btn">
                     <a class="btn btn-common" href="/Ads/Create" style="padding:20px;border-radius:10px"><i class="lni-pencil-alt"></i> Đăng Tin</a>
