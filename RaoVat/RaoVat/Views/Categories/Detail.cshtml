@@ -124,7 +124,7 @@
 
                     <aside class="details-sidebar">
                         <div class="widget">
-                            <h4 class="widget-title">Ad Posted By</h4>
+                            <h4 class="widget-title">Được đăng bởi</h4>
                             <div class="agent-inner">
                                 <div class="agent-title">
                                     <div class="agent-photo">
@@ -133,12 +133,34 @@
                                     <div class="agent-details">
                                         <h3><a href="#">@Html.DisplayFor(model => model.USER.TENDANGNHAP)</a></h3>
                                         <span><i class="lni-phone-handset"></i>@Html.DisplayFor(model => model.USER.SODIENTHOAI)</span>
+                                        <span><i class="lni-licencse"></i>@Html.DisplayFor(model => model.USER.EMAIL)</span>
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Your Email">
-                                <input type="text" class="form-control" placeholder="Your Phone">
-                                <p>I'm interested in this property [ID 123456] and I'd like to know more details.</p>
-                                <button class="btn btn-common fullwidth mt-4">Send Message</button>
+                                @using (Html.BeginForm("SendEmail", "Categories", FormMethod.Post))
+                                {<form method="post" action="SendEmail">
+                                        @*<input type="text" class="form-control" name="" placeholder="Your Email">
+                                        <input type="text" class="form-control" name="subject" placeholder="Your Phone">*@
+                                            <input class="form-control" type="text" name="receiver" hidden value="@Html.ValueFor(model=>model.USER.EMAIL).ToString().Trim()"/> 
+                                            <span class="form-control-static"> Tiêu đề: </span>
+                                            <input class="form-control" type="text" name="subject" /> 
+                                            <span class="form-control-static"> Tên của bạn: </span>
+                                            <input class="form-control" type="text" name="subjectname" /> 
+                                            <span class="form-control-static"> Số điện thoại: </span>
+                                            <input class="form-control" type="text" name="subjectphone" />
+                                            <span class="form-control-static"> Message: </span>
+                                            <textarea class="form-control" typeof="text" name="note"></textarea>
+                                            <p>Nếu bạn quan tâm tới sản phẩm,hãy liên hệ ngay với tôi nhé.</p>
+                                            <button class="btn btn-common fullwidth mt-4" type="submit" value="Send">Send Message</button>
+
+                                        @if (ViewBag.SendMail != null)
+                                        {<h2> @ViewBag.SendMail</h2>
+                                    }
+                                    </form>
+
+                                }
+
+                            
+
                             </div>
                         </div>
 

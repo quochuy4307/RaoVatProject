@@ -49,15 +49,7 @@
             </div>
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav mr-auto w-100 justify-content-center">
-                    @*<li class="nav-item dropdown active">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Home
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item active" href="index-2.html">Home 1</a>
-                <a class="dropdown-item" href="index-3.html">Home 2</a>
-            </div>
-        </li>*@
+
                     <li class="nav-item">
                         <a class="nav-link" href="/Home/TrangChu/">
                             Trang Chủ
@@ -68,56 +60,69 @@
                             Categories
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="@Url.Action("Index","Categories",new { category = "Xe" }, "")">Xe</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","Categories",new { category = "Đồ điện tử" }, "")">Đồ điện tử</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","Categories",new { category = "Hôn nhân" }, "")">Hôn nhân</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","Categories",new { category = "Nội thất" }, "")">Nội thất</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","Categories",new { category = "Địa ốc" }, "")">Địa ốc</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","Categories",new { category = "Sức khỏe và làm đẹp" }, "")">Sức khỏe và làm đẹp</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","Categories",new { category = "Thời trang" }, "")">Thời trang</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","Categories",new { category = "Giáo dục" }, "")">Giáo dục</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Categories", new { category = "Xe" }, "")">Xe</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Categories", new { category = "Đồ điện tử" }, "")">Đồ điện tử</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Categories", new { category = "Hôn nhân" }, "")">Hôn nhân</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Categories", new { category = "Nội thất" }, "")">Nội thất</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Categories", new { category = "Địa ốc" }, "")">Địa ốc</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Categories", new { category = "Sức khỏe và làm đẹp" }, "")">Sức khỏe và làm đẹp</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Categories", new { category = "Thời trang" }, "")">Thời trang</a>
+                            <a class="dropdown-item" href="@Url.Action("Index", "Categories", new { category = "Giáo dục" }, "")">Giáo dục</a>
                         </div>
                     </li>
-                    @{
-                        if (Session["TENDANGNHAP"] == null)
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="/USER/Index/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Đăng nhập
-                                </a>
+                    @{ if (Session["TENDANGNHAP"] == null) {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="/USER/Index/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Đăng nhập
+                        </a>
 
-                            </li>
+                    </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/USER/RegisterUser/">
-                                    Đăng ký
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item dropdown">
-
-                                @{
-                                    var a = Session["TENDANGNHAP"];
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @Session["TENDANGNHAP"]
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="@Url.Action("DetailInfo","Ads",new { id = a.ToString()})">Thông tin cá nhân</a>
-                                        <a class="dropdown-item" href="/Ads/QuanLyTin">Quản lý rao vặt</a>
-                                        <a class="dropdown-item" href="@Url.Action("LogOutUser","User")">Đăng Xuất</a>
-                                    </div>
-                                </li>
-                                }
-                                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/USER/RegisterUser/">
+                            Đăng ký
+                        </a>
+                    </li>
                             }
-                    }
+                        }
                 </ul>
                 <div class="post-btn">
                     <a class="btn btn-common" href="/Ads/Create" style="padding:20px;border-radius:10px"><i class="lni-pencil-alt"></i> Đăng Tin</a>
                 </div>
+
+                @{ if (Session["TENDANGNHAP"] != null)
+                    {
+                        var a = Session["TENDANGNHAP"];
+
+
+                        <i style="font-size:35px" class="lni-user p-3"></i>
+                        <div class="nav-item dropdown">
+
+                            <h3 class="p-l-0">@Session["TENDANGNHAP"]</h3>
+                            <div class="dropdown-menu">
+
+                                <a class="dropdown-item" href="@Url.Action("DetailInfo", "Ads", new { id = a.ToString() })">Thông tin cá nhân</a>
+                                <a class="dropdown-item" href="@Url.Action("QuanLyTin", "Ads")">Quản lý tin</a>
+                                <a class="dropdown-item" href="@Url.Action("LogOutUser", "User")">Đăng Xuất</a>
+
+                            </div>
+                        </div>
+                    }
+                }
+                @*<ul>
+
+        <li class="nav-item dropdown">
+            @{
+                if (Session["TENDANGNHAP"] != null)
+                {
+                    var a = Session["TENDANGNHAP"];
+                    <a href="@Url.Action("DetailInfo","Ads",new { id = a.ToString()})">Thông tin cá nhân</a>
+                    <a href="@Url.Action("LogOutUser","User")">Đăng Xuất</a>
+                }
+            }
+        </li>
+
+        </ul>*@
             </div>
         </div>
 

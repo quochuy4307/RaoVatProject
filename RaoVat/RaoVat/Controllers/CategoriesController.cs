@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using RaoVat.Models;
 using PagedList;
 using PagedList.Mvc;
+using System.Net.Mail;
+using System.Net;
+
 
 namespace RaoVat.Controllers
 {
@@ -77,6 +80,55 @@ namespace RaoVat.Controllers
         {
             var listsear = db.RAOVATs.OrderByDescending(x => x.NGAYGIODANG).Where(p => (double)p.GIA >= min && (double)p.GIA <= max).Where(s => s.MATRANGTHAI == 1).ToList();
             return View(listsear);
+        }
+        public ActionResult SuccesMail()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SendEmail(string receiver, string subject, string content, string subjectname, string subjectphone, string note)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var usercurrent = db.USERs.Where(x => x.EMAIL == receiver).FirstOrDefault();
+                    var senderEmail = new MailAddress("quchuy0@gmail.com", "Thông Báo Rao Vặt");
+                    var receiverEmail = new MailAddress(receiver, "Receiver");
+                    var password = "180320Huy";
+                    var sub = subject;
+                    string body = content;
+                    body = System.IO.File.ReadAllText(Server.MapPath("~/Views/Categories/email.html"));
+                    body = body.Replace("{{username}}", usercurrent.TENDANGNHAP);
+                    body = body.Replace("{{guessname}}", subjectname);
+                    body = body.Replace("{{phone}}", subjectphone);
+                    body = body.Replace("{{note}}", note);
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(senderEmail.Address, password)
+                    };
+                    using (var mess = new MailMessage(senderEmail, receiverEmail)
+                    {
+                        Subject = subject,
+                        IsBodyHtml = true,
+                        Body = body,
+                    })
+                    {
+                        smtp.Send(mess);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                ViewBag.SendMail = "Some Error";
+            }
+            return RedirectToAction("SuccesMail", "Categories");
         }
     }
 }

@@ -76,7 +76,7 @@
                 <td>
                     @Html.ActionLink("Sửa", "Edit" , new { id = item.MATIN } , new { @class = "btn btn-warning" })
                     <a class="btn btn-info" href="@Url.Action("Detail","Categories",new { id = item.MATIN },"")">Chi tiết</a>
-                    @*@Html.ActionLink("Xoá", "Delete", new { id = item.MATIN }, new { @class = "btn btn-danger" })*@
+                    @Html.ActionLink("Xoá", "Delete", new { id = item.MATIN }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
                 }

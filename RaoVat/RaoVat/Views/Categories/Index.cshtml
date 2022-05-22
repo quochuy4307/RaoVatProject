@@ -8,28 +8,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
 
-    // List hình thức
-    List<SelectListItem> l1 = new List<SelectListItem>();
-    l1.Add(new SelectListItem() { Text = "Cần Bán" });
-    l1.Add(new SelectListItem() { Text = "Tìm Kiếm" });
-
-    // List tình trạng
-    List<SelectListItem> l2 = new List<SelectListItem>();
-    l2.Add(new SelectListItem() { Text = "Hàng Mới" });
-    l2.Add(new SelectListItem() { Text = "Hàng Đã Qua Sử Dụng" });
-
-    // List sắp xếp giá
-    List<SelectListItem> l3 = new List<SelectListItem>();
-    l3.Add(new SelectListItem() { Text = "Giá Tăng Dần" });
-    l3.Add(new SelectListItem() { Text = "Giá Giảm Dần" });
-
-    // List tỉnh, thành phố
-    List<SelectListItem> l4 = new List<SelectListItem>();
-    l4.Add(new SelectListItem() { Text = "Thành phố Hà Nội" });
-    l4.Add(new SelectListItem() { Text = "Thành phố Hải Phòng" });
-    l4.Add(new SelectListItem() { Text = "Thành phố Đà Nẵng" });
-    l4.Add(new SelectListItem() { Text = "Thành phố Hồ Chí Minh" });
-    l4.Add(new SelectListItem() { Text = "Thành phố Cần Thơ" });
 }
 
 
@@ -57,8 +35,8 @@
                     @using (Html.BeginForm("Search", "Categories", FormMethod.Get))
                     {
                         <div class="widget_search">
-                            <form role="search" id="search-form">
-                                <input type="text" class="form-control" autocomplete="off" name="keyword" placeholder="Search..." id="search-input" />
+                            <form role="search" id="search-form" >
+                                <input type="text" class="form-control" autocomplete="off" name="keyword" placeholder="Search..." id="Search" />
                                 <button type="submit" id="search-submit" class="search-btn"><i class="lni-search"></i></button>
                             </form>
                         </div>
@@ -80,18 +58,22 @@
                     </div>
                     <div class="Show-item">
                         <span>Show Items</span>
-                        <form class="woocommerce-ordering" method="post">
-                            <label>
-                                <select name="order" class="orderby">
-                                    <option selected="selected" value="menu-order">49 items</option>
-                                    <option value="popularity">popularity</option>
-                                    <option value="popularity">Average ration</option>
-                                    <option value="popularity">newness</option>
-                                    <option value="popularity">price</option>
-                                </select>
-                            </label>
-                        </form>
-                    </div>
+                       @using(Html.BeginForm("Index","Categories",FormMethod.Get))
+                        {
+                    <form class="woocommerce-ordering" >
+                        <label>
+                            <select name="sortBy" class="orderby">
+                                <option selected="selected" value="menu-order">Bộ lọc</option>
+                                <option value="@ViewBag.PriceLowHigh">Giá giảm dần</option>
+                                <option value="@ViewBag.PriceHighLow">Giá tăng dần</option>
+                                <option value="@ViewBag.Newess">Tin mới</option>
+                            </select>
+                        </label>
+                        <button style="background-color: #e91e63;border-radius:10px;color:white;" class="btn btn-default" type="submit">Lọc</button>
+
+                    </form>
+                        }
+                        </div>
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#grid-view"><i class="lni-grid"></i></a>
@@ -107,44 +89,7 @@
                     <div class="tab-content">
                         <div id="grid-view" class="tab-pane fade">
                             <div class="row">
-                                @*<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                        <div class="featured-box">
-                                            <figure>
-                                                <span class="price-save">
-                                                    30% Save
-                                                </span>
-                                                <div class="icon">
-                                                    <span class="bg-green"><i class="lni-heart"></i></span>
-                                                    <span><i class="lni-bookmark"></i></span>
-                                                </div>
-                                                <a href="#"><img class="img-fluid" src="assets/img/featured/img-1.jpg" alt=""></a>
-                                            </figure>
-                                            <div class="feature-content">
-                                                <div class="product">
-                                                    <a href="#">Electronic > </a>
-                                                    <a href="#">Apple</a>
-                                                </div>
-                                                <h4><a href="ads-details.html">Canon SX Powershot ...</a></h4>
-                                                <div class="meta-tag">
-                                                    <span>
-                                                        <a href="#"><i class="lni-user"></i> John Smith</a>
-                                                    </span>
-                                                    <span>
-                                                        <a href="#"><i class="lni-map-marker"></i> New York, US</a>
-                                                    </span>
-                                                    <span>
-                                                        <a href="#"><i class="lni-tag"></i> Apple</a>
-                                                    </span>
-                                                </div>
-                                                <p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
-                                                <div class="listing-bottom">
-                                                    <h3 class="price float-left">$249.00</h3>
-                                                    <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>*@
-
+                              
                             </div>
                         </div>
                         <div id="list-view" class="tab-pane fade active show">
@@ -152,7 +97,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     @foreach (var item in Model)
                                     {
-                                        <div class="featured-box">
+                                        <div class="featured-box Search">
                                             <figure>
                                                 <span class="price-save">
                                                     @Html.DisplayFor(itemmodel => item.HINHTHUC.HINHTHUC1)
@@ -161,12 +106,12 @@
                                                     <span class="bg-green"><i class="lni-heart"></i></span>
                                                     <span><i class="lni-bookmark"></i></span>
                                                 </div>
-                                                <a href="#"><img class="img-fluid" src="@Url.Content(item.HINHANH1)" alt=""></a>
+                                                <a href="@Url.Action("Detail", "Categories", new { id = item.MATIN }, "")"><img class="img-fluid"src="@Url.Content(item.HINHANH1)" alt=""></a>
                                             </figure>
                                             <div class="feature-content">
                                                 <div class="product">
-                                                    <a href="#">Electronic > </a>
-                                                    <a href="#">Apple</a>
+                                                    <a href="/Categories/Index/">Categories > </a>
+                                                    <a href="">@Html.DisplayFor(itemmodel =>item.CATEGORY.TENLOAI)</a>
                                                 </div>
                                                 <h4><a href="ads-details.html">@Html.DisplayFor(itemmodel => item.TIEUDE)</a></h4>
                                                 <div class="meta-tag">
@@ -203,8 +148,14 @@
                 <div class="pagination-bar">
                     <nav>
                         <ul class="pagination justify-content-center">
-                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                            <li class="page-item"><a class="page-link " href="/Categories/Index?page=1">1</a></li>
+                            <li class="page-item"><a class="page-link" href="/Categories/Index?page=2">2</a></li>
+                            <li class="page-item"><a class="page-link" href="/Categories/Index?page=3">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
                         </ul>
+                        @*Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/ @Model.PageCount
+                        <div class="MenuPage">
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))*@
                     </nav>
                 </div>
 
@@ -218,3 +169,23 @@
 
 
 <br />
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>
